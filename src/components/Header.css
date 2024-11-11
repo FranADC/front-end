@@ -1,0 +1,43 @@
+.cabeceraDiv {
+  background-color: black;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabPrincipal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 25px;
+}
+
+.cabPrincipalLogo {
+  width: 250px;
+  height: 100px;
+}
+
+/*Menu navegación*/
+ul {
+  list-style: none;
+}
+
+.cabNavegacionMenu li a {
+  text-decoration: none;
+  display: block;
+}
+
+.cabNavegacionMenu > li {
+  float: left;
+  padding: 0px 10px;
+}
+
+.cabNavegacionMenu li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+.cabNavegacionMenu li:hover > ul {
+  display: block;
+}
