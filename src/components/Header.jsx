@@ -39,10 +39,10 @@ export default function () {
                 <li>
                   <a href="">Transfondos</a>
                 </li>
+                <li>
+                  <a href="/conjuros">Conjuros</a>
+                </li>
               </ul>
-            </li>
-            <li>
-              <a href="/magia">magia</a>
             </li>
           </ul>
         </div>
