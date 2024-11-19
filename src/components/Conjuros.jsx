@@ -1,15 +1,27 @@
-//import "./Header.css";
 import { useState, useEffect } from "react";
 
 export default function () {
+  const [filtroNombreConjuro, setFiltroNombreConjuro] = useState("");
+  const [filtroNivelConjuro, setFiltroNivelConjuro] = useState("");
+  const [filtroEscuelaMagia, setFiltroEscuelaMagia] = useState("");
+  const [filtroTiempoLanzamiento, setFiltroTiempoLanzamiento] = useState("");
+  const [filtroAlcanceLanzamiento, setFiltroAlcanceLanzamiento] = useState("");
+  const [filtroSomatico, setFiltroSomatico] = useState("");
+  const [filtroVerbal, setFiltroVerbal] = useState("");
+  const [filtroMaterial, setFiltroMaterial] = useState("");
+  const [filtroConcentracion, setFiltroConcentracion] = useState("");
+  const [filtroRitual, setFiltroRitual] = useState("");
+  const [paginaActual, setPaginaActual] = useState(1);
+
   const [dbEscuelasMagia, setDbEscuelasMagia] = useState([]);
   const [dbTiemposLanzamiento, setDbTiemposLanzamiento] = useState([]);
   const [dbAlcanceLanzamiento, setDbAlcanceLanzamiento] = useState([]);
+
   const [dbConjuros, setDbConjuros] = useState([]);
   const [erroresFiltros, setErroresFiltros] = useState("");
-  //Crea un objeto con su proio gette(dbMagia) y setter(setDbMagia)
 
-  //cuando una variable sufre un cambio (la variable en []), se ejecuta el codigo del interior.
+  const [maxPaginacion, setMaxPaginacion] = useState();
+
   useEffect(() => {
     async function fetchEscuelas() {
       try {
@@ -50,6 +62,7 @@ export default function () {
           throw new Error("Network response was not ok");
         }
         const data = await peticion.json();
+
         setDbAlcanceLanzamiento(data);
       } catch (err) {
         console.log(err);
@@ -57,41 +70,50 @@ export default function () {
     }
     fetchAlcance();
 
-    async function fetchConjuros() {
-      try {
-        const peticion = await fetch("http://localhost:3000/conjuros");
-        if (!peticion.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await peticion.json();
-        setDbConjuros(data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    fetchConjuros(); //ejecutar la funcion de arriba
-  }, []); //[] para que se carge cuando se inicia la página
+    fetchConjurosCount();
+  }, []);
 
-  const filtrosConjuros = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    getConjuros();
+  }, [paginaActual]);
 
-    const filtros = new URLSearchParams({
-      nombreConjuro: event.target.nombreConjuro.value,
-      nivelConjuro: event.target.nivelConjuro.value,
-      escuelaMagia: event.target.escuelaMagia.value,
-      tiempoLanzamiento: event.target.tiempoLanzamiento.value,
-      alcanceLanzamiento: event.target.alcanceLanzamiento.value,
-      somatico: event.target.somatico.value,
-      verbal: event.target.verbal.value,
-      material: event.target.material.value,
-      concentracion: event.target.concentracion.value,
-      ritual: event.target.ritual.value,
-    });
-
+  async function fetchConjurosCount() {
+    const filtros = getSearchParams();
     try {
       const peticion = await fetch(
-        "http://localhost:3000/conjuros?" + filtros.toString()
+        "http://localhost:3000/conjurosCount?" + filtros
       );
+      if (!peticion.ok) {
+        throw new Error("Network response was not ok");
+      }
+      let data = await peticion.json();
+      setMaxPaginacion(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function getSearchParams() {
+    return new URLSearchParams({
+      nombreConjuro: filtroNombreConjuro,
+      nivelConjuro: filtroNivelConjuro,
+      escuelaMagia: filtroEscuelaMagia,
+      tiempoLanzamiento: filtroTiempoLanzamiento,
+      alcanceLanzamiento: filtroAlcanceLanzamiento,
+      somatico: filtroSomatico,
+      verbal: filtroVerbal,
+      material: filtroMaterial,
+      concentracion: filtroConcentracion,
+      ritual: filtroRitual,
+      pagina: paginaActual,
+    }).toString();
+  }
+
+  async function getConjuros() {
+    const filtros = getSearchParams();
+
+    try {
+      const peticion = await fetch("http://localhost:3000/conjuros?" + filtros);
       const data = await peticion.json();
       if (!peticion.ok) {
         setErroresFiltros(data);
@@ -103,13 +125,20 @@ export default function () {
     } catch (err) {
       console.log(err);
     }
-  };
+  }
   return (
     <>
-      <form id="formFiltrosConjuros" onSubmit={filtrosConjuros}>
+      <form id="formFiltrosConjuros">
         <div>
           <label htmlFor="nombreConjuro">Nombre conjuro</label>
-          <input type="text" name="nombreConjuro" id="nombreConjuro" />
+          <input
+            type="text"
+            name="nombreConjuro"
+            id="nombreConjuro"
+            onChange={(e) => {
+              setFiltroNombreConjuro(e.target.value);
+            }}
+          />
           <label htmlFor="nombreConjuro">
             {typeof erroresFiltros.errNombreConjuro !== "undefined"
               ? erroresFiltros.errNombreConjuro
@@ -118,7 +147,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="nivelConjuro">Nivel conjuro</label>
-          <select name="nivelConjuro" id="nivelConjuro">
+          <select
+            name="nivelConjuro"
+            id="nivelConjuro"
+            onChange={(e) => {
+              setFiltroNivelConjuro(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -138,7 +173,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="escuelaMagia">Escuela magia</label>
-          <select name="escuelaMagia" id="escuelaMagia">
+          <select
+            name="escuelaMagia"
+            id="escuelaMagia"
+            onChange={(e) => {
+              setFiltroEscuelaMagia(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -156,7 +197,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="tiempoLanzamiento">Tiempo lanzamiento</label>
-          <select name="tiempoLanzamiento" id="tiempoLanzamiento">
+          <select
+            name="tiempoLanzamiento"
+            id="tiempoLanzamiento"
+            onChange={(e) => {
+              setFiltroTiempoLanzamiento(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -175,7 +222,13 @@ export default function () {
         <div>
           {" "}
           <label htmlFor="alcanceLanzamiento">Alcance lanzamiento</label>
-          <select name="alcanceLanzamiento" id="alcanceLanzamiento">
+          <select
+            name="alcanceLanzamiento"
+            id="alcanceLanzamiento"
+            onChange={(e) => {
+              setFiltroAlcanceLanzamiento(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -193,7 +246,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="somatico">somático</label>
-          <select name="somatico" id="somatico">
+          <select
+            name="somatico"
+            id="somatico"
+            onChange={(e) => {
+              setFiltroSomatico(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -208,7 +267,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="verbal">verbal</label>
-          <select name="verbal" id="verbal">
+          <select
+            name="verbal"
+            id="verbal"
+            onChange={(e) => {
+              setFiltroVerbal(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -223,7 +288,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="material">material</label>
-          <select name="material" id="material">
+          <select
+            name="material"
+            id="material"
+            onChange={(e) => {
+              setFiltroMaterial(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -238,7 +309,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="concentracion">concentración</label>
-          <select name="concentracion" id="concentracion">
+          <select
+            name="concentracion"
+            id="concentracion"
+            onChange={(e) => {
+              setFiltroConcentracion(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -253,7 +330,13 @@ export default function () {
         </div>
         <div>
           <label htmlFor="ritual">ritual</label>
-          <select name="ritual" id="ritual">
+          <select
+            name="ritual"
+            id="ritual"
+            onChange={(e) => {
+              setFiltroRitual(e.target.value);
+            }}
+          >
             <option value="" defaultValue>
               -
             </option>
@@ -266,11 +349,20 @@ export default function () {
               : ""}
           </label>
         </div>
-        <input name="submit" type="submit" value="submit" />
+        <input
+          name="submit"
+          type="submit"
+          value="submit"
+          onClick={(event) => {
+            event.preventDefault();
+            fetchConjurosCount();
+            getConjuros();
+          }}
+        />
         <input
           type="submit"
           value="reset"
-          onClick={(event) => {
+          onClick={(e) => {
             document.getElementById("formFiltrosConjuros").reset();
           }}
         />
@@ -296,7 +388,7 @@ export default function () {
             {dbConjuros.map((conjuro) => (
               <tr key={conjuro.id_conjuro}>
                 <th>
-                  <a href={"/magia/conjuros/" + conjuro.id_conjuro}>
+                  <a href={"/conjuros/" + conjuro.id_conjuro}>
                     <img src={conjuro.imagen_conjuro} alt="" />
                   </a>
                 </th>
@@ -315,6 +407,46 @@ export default function () {
           </tbody>
         </table>
       )}
+
+      {paginaActual - 1 > 1 && (
+        <button
+          onClick={(event) => {
+            setPaginaActual(1);
+          }}
+        >
+          Primero
+        </button>
+      )}
+      {paginaActual - 1 >= 1 && (
+        <button
+          onClick={(event) => {
+            setPaginaActual(paginaActual - 1);
+          }}
+        >
+          Anterior
+        </button>
+      )}
+      <button>{paginaActual}</button>
+      {paginaActual + 1 <= maxPaginacion && (
+        <button
+          onClick={(event) => {
+            setPaginaActual(paginaActual + 1);
+          }}
+        >
+          siguiente
+        </button>
+      )}
+      {paginaActual + 1 < maxPaginacion && (
+        <button
+          onClick={(event) => {
+            setPaginaActual(maxPaginacion);
+          }}
+        >
+          Ultima
+        </button>
+      )}
+
+      <p>{maxPaginacion}</p>
     </>
   );
 }
