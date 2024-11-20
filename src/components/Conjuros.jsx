@@ -11,7 +11,11 @@ export default function () {
   const [filtroMaterial, setFiltroMaterial] = useState("");
   const [filtroConcentracion, setFiltroConcentracion] = useState("");
   const [filtroRitual, setFiltroRitual] = useState("");
+  let [orderBy, setOrderBy] = useState("");
+  let [order, setOrder] = useState("");
+
   const [paginaActual, setPaginaActual] = useState(1);
+  const [maxPaginacion, setMaxPaginacion] = useState();
 
   const [dbEscuelasMagia, setDbEscuelasMagia] = useState([]);
   const [dbTiemposLanzamiento, setDbTiemposLanzamiento] = useState([]);
@@ -19,8 +23,6 @@ export default function () {
 
   const [dbConjuros, setDbConjuros] = useState([]);
   const [erroresFiltros, setErroresFiltros] = useState("");
-
-  const [maxPaginacion, setMaxPaginacion] = useState();
 
   useEffect(() => {
     async function fetchEscuelas() {
@@ -75,7 +77,7 @@ export default function () {
 
   useEffect(() => {
     getConjuros();
-  }, [paginaActual]);
+  }, [paginaActual, orderBy, order]);
 
   async function fetchConjurosCount() {
     const filtros = getSearchParams();
@@ -106,6 +108,8 @@ export default function () {
       concentracion: filtroConcentracion,
       ritual: filtroRitual,
       pagina: paginaActual,
+      orderBy,
+      order,
     }).toString();
   }
 
@@ -128,7 +132,7 @@ export default function () {
   }
   return (
     <>
-      <form id="formFiltrosConjuros">
+      <form id="formsConjurosFiltro">
         <div>
           <label htmlFor="nombreConjuro">Nombre conjuro</label>
           <input
@@ -363,7 +367,7 @@ export default function () {
           type="submit"
           value="reset"
           onClick={(e) => {
-            document.getElementById("formFiltrosConjuros").reset();
+            document.getElementById("formConjurosFiltro").reset();
           }}
         />
       </form>
@@ -373,9 +377,47 @@ export default function () {
         <table>
           <thead>
             <tr>
-              <th>Imagen</th>
-              <th>Nombre</th>
-              <th>Nivel</th>
+              <th>
+                <button>Imagen</button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "nombre_conjuro") {
+                      setOrderBy("nombre_conjuro");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Nombre
+                </button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "nivel_conjuro") {
+                      setOrderBy("nivel_conjuro");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Nivel
+                </button>
+              </th>
               <th>Escuela</th>
               <th>Tiempo de lanzamiento</th>
               <th>Rango/Area</th>

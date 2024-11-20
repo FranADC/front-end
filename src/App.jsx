@@ -13,6 +13,7 @@ import CompoHeader from "./components/Header";
 import CompoFooter from "./components/Footer";
 import CompoConjuros from "./components/Conjuros";
 import CompoConjuroID from "./components/ConjuroID";
+import CompoConjuroAdd from "./components/ConjuroAdd";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/conjuros" element={<CompoConjuros />} />
         <Route path="/conjuros/:ID" element={<CompoConjuroID />} />
+        <Route path="/conjuros/añadir" element={<CompoConjuroAdd />} />
       </Routes>
       <CompoFooter />
     </BrowserRouter>
