@@ -14,6 +14,7 @@ import CompoFooter from "./components/Footer";
 import CompoConjuros from "./components/Conjuros";
 import CompoConjuroID from "./components/ConjuroID";
 import CompoConjuroAdd from "./components/ConjuroAdd";
+import CompoConjuroUpdate from "./components/ConjuroUpdate";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
         <Route path="/conjuros" element={<CompoConjuros />} />
         <Route path="/conjuros/:ID" element={<CompoConjuroID />} />
         <Route path="/conjuros/añadir" element={<CompoConjuroAdd />} />
+        <Route
+          path="/conjuros/modificar/:ID"
+          element={<CompoConjuroUpdate />}
+        />
       </Routes>
       <CompoFooter />
     </BrowserRouter>

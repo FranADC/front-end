@@ -16,6 +16,14 @@ export default function () {
   const [addRitual, setAddRitual] = useState("");
   const [addDescCorta, setAddDescCorta] = useState("");
   const [addDescLarga, setAddDescLarga] = useState("");
+  const [addBardo, setAddBardo] = useState("");
+  const [addBrujo, setAddBrujo] = useState("");
+  const [addClerigo, setAddClerigo] = useState("");
+  const [addDruida, setAddDruida] = useState("");
+  const [addExplorador, setAddExplorador] = useState("");
+  const [addHechicero, setAddHechicero] = useState("");
+  const [addMago, setAddMago] = useState("");
+  const [addPaladin, setAddPaladin] = useState("");
   const [addImagen, setAddImagen] = useState("");
 
   const [dbEscuelasMagia, setDbEscuelasMagia] = useState([]);
@@ -23,13 +31,14 @@ export default function () {
   const [dbAlcanceLanzamiento, setDbAlcanceLanzamiento] = useState([]);
 
   const [dbConjuros, setDbConjuros] = useState([]);
-  const [erroresFiltros, setErroresFiltros] = useState("");
+  const [erroresAdd, setErroresAdd] = useState("");
 
   useEffect(() => {
     async function fetchEscuelas() {
       try {
         const peticion = await fetch("http://localhost:3000/escuelasMagia");
         if (!peticion.ok) {
+          setErroresAdd(data);
           throw new Error("Network response was not ok");
         }
         const data = await peticion.json();
@@ -59,7 +68,7 @@ export default function () {
     async function fetchAlcance() {
       try {
         const peticion = await fetch(
-          "http://localhost:3000/alcanceLanzamiento"
+          "http://localhost:3000/alcancesLanzamiento"
         );
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
@@ -74,7 +83,7 @@ export default function () {
     fetchAlcance();
   }, []);
 
-  function formDataSubmit() {
+  function formDataSubmit(newFile) {
     const formData = new FormData();
     formData.append("nombreConjuro", addNombreConjuro);
     formData.append("nivelConjuro", addNivelConjuro);
@@ -91,7 +100,16 @@ export default function () {
     formData.append("ritual", addRitual);
     formData.append("descCorta", addDescCorta);
     formData.append("descLarga", addDescLarga);
-    formData.append("imagen", addImagen);
+    formData.append("bardo", addBardo);
+    formData.append("brujo", addBrujo);
+    formData.append("clerigo", addClerigo);
+    formData.append("druida", addDruida);
+    formData.append("explorador", addExplorador);
+    formData.append("hechicero", addHechicero);
+    formData.append("mago", addMago);
+    formData.append("paladin", addPaladin);
+
+    formData.append("imagen", newFile);
     return formData;
   }
 
@@ -107,8 +125,8 @@ export default function () {
             onChange={(e) => setAddNombreConjuro(e.target.value)}
           />
           <label htmlFor="nombreConjuro">
-            {typeof erroresFiltros.errNombreConjuro !== "undefined"
-              ? erroresFiltros.errNombreConjuro
+            {typeof erroresAdd.errNombreConjuro !== "undefined"
+              ? erroresAdd.errNombreConjuro
               : ""}
           </label>
         </div>
@@ -131,8 +149,8 @@ export default function () {
             <option value="6">Nivel 6</option>
           </select>
           <label htmlFor="nivelConjuro">
-            {typeof erroresFiltros.errNivelConjuro !== "undefined"
-              ? erroresFiltros.errNivelConjuro
+            {typeof erroresAdd.errNivelConjuro !== "undefined"
+              ? erroresAdd.errNivelConjuro
               : ""}
           </label>
         </div>
@@ -147,14 +165,14 @@ export default function () {
               -
             </option>
             {dbEscuelasMagia.map((escuela) => (
-              <option key={escuela.id_clase} value={escuela.id_clase}>
+              <option key={escuela.id_escuela} value={escuela.id_escuela}>
                 {escuela.nombre_escuela}
               </option>
             ))}
           </select>
           <label htmlFor="escuelaMagia">
-            {typeof erroresFiltros.errEscuelaMagia !== "undefined"
-              ? erroresFiltros.errEscuelaMagia
+            {typeof erroresAdd.errEscuelaMagia !== "undefined"
+              ? erroresAdd.errEscuelaMagia
               : ""}
           </label>
         </div>
@@ -175,8 +193,8 @@ export default function () {
             ))}
           </select>
           <label htmlFor="tiempoLanzamiento">
-            {typeof erroresFiltros.errTiempoLanzamiento !== "undefined"
-              ? erroresFiltros.errTiempoLanzamiento
+            {typeof erroresAdd.errTiempoLanzamiento !== "undefined"
+              ? erroresAdd.errTiempoLanzamiento
               : ""}
           </label>
         </div>
@@ -197,8 +215,8 @@ export default function () {
             ))}
           </select>
           <label htmlFor="alcanceLanzamiento">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
+              ? erroresAdd.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -211,8 +229,8 @@ export default function () {
             onChange={(e) => setAddRangoArea(e.target.value)}
           />
           <label htmlFor="rangoArea">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
+              ? erroresAdd.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -225,8 +243,8 @@ export default function () {
             onChange={(e) => setAddSomatico(e.target.checked)}
           ></input>
           <label htmlFor="somatico">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresAdd.errSomatico !== "undefined"
+              ? erroresAdd.errSomatico
               : ""}
           </label>
         </div>
@@ -239,8 +257,8 @@ export default function () {
             onChange={(e) => setAddVerbal(e.target.checked)}
           ></input>
           <label htmlFor="verbal">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresAdd.errSomatico !== "undefined"
+              ? erroresAdd.errSomatico
               : ""}
           </label>
         </div>
@@ -253,8 +271,8 @@ export default function () {
             onChange={(e) => setAddMaterial(e.target.checked)}
           ></input>
           <label htmlFor="material">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresAdd.errSomatico !== "undefined"
+              ? erroresAdd.errSomatico
               : ""}
           </label>
         </div>
@@ -267,8 +285,8 @@ export default function () {
             onChange={(e) => setAddMaterialDesc(e.target.value)}
           />
           <label htmlFor="materialDesc">
-            {typeof erroresFiltros.errNombreConjuro !== "undefined"
-              ? erroresFiltros.errNombreConjuro
+            {typeof erroresAdd.errNombreConjuro !== "undefined"
+              ? erroresAdd.errNombreConjuro
               : ""}
           </label>
         </div>
@@ -281,8 +299,8 @@ export default function () {
             onChange={(e) => setAddDuracion(e.target.value)}
           />
           <label htmlFor="duracion">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
+              ? erroresAdd.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -295,8 +313,8 @@ export default function () {
             onChange={(e) => setAddConcentracion(e.target.checked)}
           ></input>
           <label htmlFor="concentracion">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresAdd.errSomatico !== "undefined"
+              ? erroresAdd.errSomatico
               : ""}
           </label>
         </div>
@@ -309,8 +327,8 @@ export default function () {
             onChange={(e) => setAddRitual(e.target.checked)}
           ></input>
           <label htmlFor="ritual">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresAdd.errSomatico !== "undefined"
+              ? erroresAdd.errSomatico
               : ""}
           </label>
         </div>
@@ -324,8 +342,8 @@ export default function () {
             onChange={(e) => setAddDescCorta(e.target.value)}
           ></textarea>
           <label htmlFor="descCorta">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
+              ? erroresAdd.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -339,16 +357,82 @@ export default function () {
             onChange={(e) => setAddDescLarga(e.target.value)}
           ></textarea>
           <label htmlFor="descLarga">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
+              ? erroresAdd.errAlcanceLanzamiento
               : ""}
           </label>
+        </div>
+        <div>
+          <label htmlFor="conjuroBardo"></label>
+          <input
+            type="checkbox"
+            id="conjuroBardo"
+            name="conjuroBardo"
+            onChange={(e) => setAddBardo(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroBrujo"></label>
+          <input
+            type="checkbox"
+            id="conjuroBrujo"
+            name="conjuroBrujo"
+            onChange={(e) => setAddBrujo(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroClerigo"></label>
+          <input
+            type="checkbox"
+            id="conjuroClerigo"
+            name="conjuroClerigo"
+            onChange={(e) => setAddClerigo(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroDruida"></label>
+          <input
+            type="checkbox"
+            id="conjuroDruida"
+            name="conjuroDruida"
+            onChange={(e) => setAddDruida(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroExplorador"></label>
+          <input
+            type="checkbox"
+            id="conjuroExplorador"
+            name="conjuroExplorador"
+            onChange={(e) => setAddExplorador(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroHechicero"></label>
+          <input
+            type="checkbox"
+            id="conjuroHechicero"
+            name="conjuroHechicero"
+            onChange={(e) => setAddHechicero(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroMago"></label>
+          <input
+            type="checkbox"
+            id="conjuroMago"
+            name="conjuroMago"
+            onChange={(e) => setAddMago(e.target.checked)}
+          ></input>
+
+          <label htmlFor="conjuroPaladin"></label>
+          <input
+            type="checkbox"
+            id="conjuroPaladin"
+            name="conjuroPaladin"
+            onChange={(e) => setAddPaladin(e.target.checked)}
+          ></input>
         </div>
         <div>
           <input
             type="file"
             src=""
             alt=""
+            id="imgfile"
             onChange={(e) => setAddImagen(e.target.files[0])}
           />
         </div>
@@ -359,12 +443,29 @@ export default function () {
           value="submit"
           onClick={async (event) => {
             event.preventDefault();
-            const data = formDataSubmit();
+
+            let data = new Object();
+
+            let element = document.getElementById("imgfile");
+            let file = element.files[0];
+            if (typeof file == "object") {
+              let blob = file.slice(0, file.size, file.type);
+
+              const tipoImagen = file.type.split("/");
+
+              let newFile = new File([blob], "imagenPrueba." + tipoImagen[1], {
+                type: file.type,
+              });
+              data = formDataSubmit(newFile);
+            } else {
+              data = formDataSubmit("error");
+            }
+
             const peticion = await fetch("http://localhost:3000/conjuros/add", {
               method: "POST",
               body: data,
             });
-            const result = await peticion.json();
+            const result = await peticion; /*.json()*/
             console.log(result);
           }}
         />

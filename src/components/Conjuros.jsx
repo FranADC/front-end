@@ -11,6 +11,8 @@ export default function () {
   const [filtroMaterial, setFiltroMaterial] = useState("");
   const [filtroConcentracion, setFiltroConcentracion] = useState("");
   const [filtroRitual, setFiltroRitual] = useState("");
+  const [filtroClaseMagia, setClaseMagia] = useState("");
+
   let [orderBy, setOrderBy] = useState("");
   let [order, setOrder] = useState("");
 
@@ -20,6 +22,7 @@ export default function () {
   const [dbEscuelasMagia, setDbEscuelasMagia] = useState([]);
   const [dbTiemposLanzamiento, setDbTiemposLanzamiento] = useState([]);
   const [dbAlcanceLanzamiento, setDbAlcanceLanzamiento] = useState([]);
+  const [dbClasesMagia, setDbClasesMagia] = useState([]);
 
   const [dbConjuros, setDbConjuros] = useState([]);
   const [erroresFiltros, setErroresFiltros] = useState("");
@@ -58,7 +61,7 @@ export default function () {
     async function fetchAlcance() {
       try {
         const peticion = await fetch(
-          "http://localhost:3000/alcanceLanzamiento"
+          "http://localhost:3000/alcancesLanzamiento"
         );
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
@@ -71,6 +74,21 @@ export default function () {
       }
     }
     fetchAlcance();
+
+    async function fetchClase() {
+      try {
+        const peticion = await fetch("http://localhost:3000/clasesMagia");
+        if (!peticion.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await peticion.json();
+
+        setDbClasesMagia(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchClase();
 
     fetchConjurosCount();
   }, []);
@@ -108,6 +126,7 @@ export default function () {
       concentracion: filtroConcentracion,
       ritual: filtroRitual,
       pagina: paginaActual,
+      claseMagia: filtroClaseMagia,
       orderBy,
       order,
     }).toString();
@@ -188,7 +207,7 @@ export default function () {
               -
             </option>
             {dbEscuelasMagia.map((escuela) => (
-              <option key={escuela.id_clase} value={escuela.id_clase}>
+              <option key={escuela.id_escuela} value={escuela.id_clase}>
                 {escuela.nombre_escuela}
               </option>
             ))}
@@ -245,6 +264,30 @@ export default function () {
           <label htmlFor="alcanceLanzamiento">
             {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
               ? erroresFiltros.errAlcanceLanzamiento
+              : ""}
+          </label>
+        </div>
+        <div>
+          <label htmlFor="claseMagia">Escuela magia</label>
+          <select
+            name="claseMagia"
+            id="claseMagia"
+            onChange={(e) => {
+              setClaseMagia(e.target.value);
+            }}
+          >
+            <option value="" defaultValue>
+              -
+            </option>
+            {dbClasesMagia.map((clase) => (
+              <option key={clase.id_clase} value={clase.id_clase}>
+                {clase.nombre_clase}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="claseMagia">
+            {typeof erroresFiltros.errclaseMagia !== "undefined"
+              ? erroresFiltros.errclaseMagia
               : ""}
           </label>
         </div>
@@ -353,6 +396,7 @@ export default function () {
               : ""}
           </label>
         </div>
+
         <input
           name="submit"
           type="submit"
@@ -370,6 +414,7 @@ export default function () {
             document.getElementById("formConjurosFiltro").reset();
           }}
         />
+        <a href="http://localhost:5173/conjuros/añadir">añadir</a>
       </form>
       {dbConjuros.length === 0 ? (
         <p>No se han encontrado hechizos con esos filtros.</p>
@@ -418,12 +463,120 @@ export default function () {
                   Nivel
                 </button>
               </th>
-              <th>Escuela</th>
-              <th>Tiempo de lanzamiento</th>
-              <th>Rango/Area</th>
-              <th>Somático</th>
-              <th>Verbal</th>
-              <th>Material</th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "escuela_magia") {
+                      setOrderBy("escuela_magia");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Escuela
+                </button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "tiempo_lanz") {
+                      setOrderBy("tiempo_lanz");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Tiempo de lanzamiento
+                </button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "rango_area") {
+                      setOrderBy("rango_area");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Rango/Area
+                </button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "somatico") {
+                      setOrderBy("somatico");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Somático
+                </button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "verbal") {
+                      setOrderBy("verbal");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Verbal
+                </button>
+              </th>
+              <th>
+                <button
+                  onClick={(e) => {
+                    if (orderBy != "material") {
+                      setOrderBy("material");
+                      setOrder("ASC");
+                    } else {
+                      if (order == "ASC") {
+                        setOrder("DESC");
+                      } else {
+                        setOrderBy("");
+                        setOrder("");
+                      }
+                    }
+                  }}
+                >
+                  Material
+                </button>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -431,7 +584,10 @@ export default function () {
               <tr key={conjuro.id_conjuro}>
                 <th>
                   <a href={"/conjuros/" + conjuro.id_conjuro}>
-                    <img src={conjuro.imagen_conjuro} alt="" />
+                    <img
+                      src={"http://localhost:3000" + conjuro.imagen_conjuro}
+                      alt=""
+                    />
                   </a>
                 </th>
                 <th>{conjuro.nombre_conjuro}</th>
