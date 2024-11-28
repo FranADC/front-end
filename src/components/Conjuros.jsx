@@ -30,7 +30,9 @@ export default function () {
   useEffect(() => {
     async function fetchEscuelas() {
       try {
-        const peticion = await fetch("http://localhost:3000/escuelasMagia");
+        const peticion = await fetch("http://localhost:3000/escuelasMagia", {
+          credentials: "include",
+        });
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
         }
@@ -40,12 +42,16 @@ export default function () {
         console.log(err);
       }
     }
+
     fetchEscuelas();
 
     async function fetchTiempos() {
       try {
         const peticion = await fetch(
-          "http://localhost:3000/tiemposLanzamiento"
+          "http://localhost:3000/tiemposLanzamiento",
+          {
+            credentials: "include",
+          }
         );
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
@@ -61,7 +67,10 @@ export default function () {
     async function fetchAlcance() {
       try {
         const peticion = await fetch(
-          "http://localhost:3000/alcancesLanzamiento"
+          "http://localhost:3000/alcancesLanzamiento",
+          {
+            credentials: "include",
+          }
         );
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
@@ -77,7 +86,9 @@ export default function () {
 
     async function fetchClase() {
       try {
-        const peticion = await fetch("http://localhost:3000/clasesMagia");
+        const peticion = await fetch("http://localhost:3000/clasesMagia", {
+          credentials: "include",
+        });
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
         }
@@ -101,7 +112,10 @@ export default function () {
     const filtros = getSearchParams();
     try {
       const peticion = await fetch(
-        "http://localhost:3000/conjurosCount?" + filtros
+        "http://localhost:3000/conjurosCount?" + filtros,
+        {
+          credentials: "include",
+        }
       );
       if (!peticion.ok) {
         throw new Error("Network response was not ok");
@@ -136,13 +150,20 @@ export default function () {
     const filtros = getSearchParams();
 
     try {
-      const peticion = await fetch("http://localhost:3000/conjuros?" + filtros);
+      const peticion = await fetch(
+        "http://localhost:3000/conjuros?" + filtros,
+        {
+          credentials: "include",
+        }
+      );
       const data = await peticion.json();
       if (!peticion.ok) {
         setErroresFiltros(data);
         throw new Error("Network response was not ok");
       } else {
         setErroresFiltros("");
+        console.log(data);
+
         setDbConjuros(data);
       }
     } catch (err) {
@@ -593,7 +614,7 @@ export default function () {
                 <th>{conjuro.nombre_conjuro}</th>
                 <th>{conjuro.nivel_conjuro}</th>
                 <th>{conjuro.nombre_escuela}</th>
-                <th>{conjuro.nombre_lanzamiento}</th>
+                <th>{conjuro.nombre_tiempo}</th>
                 <th>{conjuro.rango_area}</th>
                 <th>{conjuro.somatico}</th>
                 <th>{conjuro.verbal}</th>

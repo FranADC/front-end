@@ -10,7 +10,9 @@ export default function () {
   useEffect(() => {
     async function fetchData() {
       try {
-        const peticion = await fetch("http://localhost:3000/conjuros/" + ID);
+        const peticion = await fetch("http://localhost:3000/conjuros/" + ID, {
+          credentials: "include",
+        });
         const data = await peticion.json();
         if (!peticion.ok) {
           setErroresFiltros(data);

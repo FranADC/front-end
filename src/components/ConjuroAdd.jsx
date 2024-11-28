@@ -31,14 +31,15 @@ export default function () {
   const [dbAlcanceLanzamiento, setDbAlcanceLanzamiento] = useState([]);
 
   const [dbConjuros, setDbConjuros] = useState([]);
-  const [erroresAdd, setErroresAdd] = useState("");
+  const [erroresFiltros, setErroresFiltros] = useState("");
 
   useEffect(() => {
     async function fetchEscuelas() {
       try {
-        const peticion = await fetch("http://localhost:3000/escuelasMagia");
+        const peticion = await fetch("http://localhost:3000/escuelasMagia", {
+          credentials: "include",
+        });
         if (!peticion.ok) {
-          setErroresAdd(data);
           throw new Error("Network response was not ok");
         }
         const data = await peticion.json();
@@ -52,7 +53,10 @@ export default function () {
     async function fetchTiempos() {
       try {
         const peticion = await fetch(
-          "http://localhost:3000/tiemposLanzamiento"
+          "http://localhost:3000/tiemposLanzamiento",
+          {
+            credentials: "include",
+          }
         );
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
@@ -68,7 +72,10 @@ export default function () {
     async function fetchAlcance() {
       try {
         const peticion = await fetch(
-          "http://localhost:3000/alcancesLanzamiento"
+          "http://localhost:3000/alcancesLanzamiento",
+          {
+            credentials: "include",
+          }
         );
         if (!peticion.ok) {
           throw new Error("Network response was not ok");
@@ -84,7 +91,7 @@ export default function () {
   }, []);
 
   function formDataSubmit(newFile) {
-    const formData = new FormData();
+    const formData = new FormData(); //form data muchos campos, pesados(imagenes) y no permite codificación
     formData.append("nombreConjuro", addNombreConjuro);
     formData.append("nivelConjuro", addNivelConjuro);
     formData.append("escuelaMagia", addEscuelaMagia);
@@ -125,8 +132,8 @@ export default function () {
             onChange={(e) => setAddNombreConjuro(e.target.value)}
           />
           <label htmlFor="nombreConjuro">
-            {typeof erroresAdd.errNombreConjuro !== "undefined"
-              ? erroresAdd.errNombreConjuro
+            {typeof erroresFiltros.errNombreConjuro !== "undefined"
+              ? erroresFiltros.errNombreConjuro
               : ""}
           </label>
         </div>
@@ -149,8 +156,8 @@ export default function () {
             <option value="6">Nivel 6</option>
           </select>
           <label htmlFor="nivelConjuro">
-            {typeof erroresAdd.errNivelConjuro !== "undefined"
-              ? erroresAdd.errNivelConjuro
+            {typeof erroresFiltros.errNivelConjuro !== "undefined"
+              ? erroresFiltros.errNivelConjuro
               : ""}
           </label>
         </div>
@@ -171,8 +178,8 @@ export default function () {
             ))}
           </select>
           <label htmlFor="escuelaMagia">
-            {typeof erroresAdd.errEscuelaMagia !== "undefined"
-              ? erroresAdd.errEscuelaMagia
+            {typeof erroresFiltros.errEscuelaMagia !== "undefined"
+              ? erroresFiltros.errEscuelaMagia
               : ""}
           </label>
         </div>
@@ -193,8 +200,8 @@ export default function () {
             ))}
           </select>
           <label htmlFor="tiempoLanzamiento">
-            {typeof erroresAdd.errTiempoLanzamiento !== "undefined"
-              ? erroresAdd.errTiempoLanzamiento
+            {typeof erroresFiltros.errTiempoLanzamiento !== "undefined"
+              ? erroresFiltros.errTiempoLanzamiento
               : ""}
           </label>
         </div>
@@ -215,8 +222,8 @@ export default function () {
             ))}
           </select>
           <label htmlFor="alcanceLanzamiento">
-            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
-              ? erroresAdd.errAlcanceLanzamiento
+            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
+              ? erroresFiltros.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -229,8 +236,8 @@ export default function () {
             onChange={(e) => setAddRangoArea(e.target.value)}
           />
           <label htmlFor="rangoArea">
-            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
-              ? erroresAdd.errAlcanceLanzamiento
+            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
+              ? erroresFiltros.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -243,8 +250,8 @@ export default function () {
             onChange={(e) => setAddSomatico(e.target.checked)}
           ></input>
           <label htmlFor="somatico">
-            {typeof erroresAdd.errSomatico !== "undefined"
-              ? erroresAdd.errSomatico
+            {typeof erroresFiltros.errSomatico !== "undefined"
+              ? erroresFiltros.errSomatico
               : ""}
           </label>
         </div>
@@ -257,8 +264,8 @@ export default function () {
             onChange={(e) => setAddVerbal(e.target.checked)}
           ></input>
           <label htmlFor="verbal">
-            {typeof erroresAdd.errSomatico !== "undefined"
-              ? erroresAdd.errSomatico
+            {typeof erroresFiltros.errSomatico !== "undefined"
+              ? erroresFiltros.errSomatico
               : ""}
           </label>
         </div>
@@ -271,8 +278,8 @@ export default function () {
             onChange={(e) => setAddMaterial(e.target.checked)}
           ></input>
           <label htmlFor="material">
-            {typeof erroresAdd.errSomatico !== "undefined"
-              ? erroresAdd.errSomatico
+            {typeof erroresFiltros.errSomatico !== "undefined"
+              ? erroresFiltros.errSomatico
               : ""}
           </label>
         </div>
@@ -285,8 +292,8 @@ export default function () {
             onChange={(e) => setAddMaterialDesc(e.target.value)}
           />
           <label htmlFor="materialDesc">
-            {typeof erroresAdd.errNombreConjuro !== "undefined"
-              ? erroresAdd.errNombreConjuro
+            {typeof erroresFiltros.errNombreConjuro !== "undefined"
+              ? erroresFiltros.errNombreConjuro
               : ""}
           </label>
         </div>
@@ -299,8 +306,8 @@ export default function () {
             onChange={(e) => setAddDuracion(e.target.value)}
           />
           <label htmlFor="duracion">
-            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
-              ? erroresAdd.errAlcanceLanzamiento
+            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
+              ? erroresFiltros.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -313,8 +320,8 @@ export default function () {
             onChange={(e) => setAddConcentracion(e.target.checked)}
           ></input>
           <label htmlFor="concentracion">
-            {typeof erroresAdd.errSomatico !== "undefined"
-              ? erroresAdd.errSomatico
+            {typeof erroresFiltros.errSomatico !== "undefined"
+              ? erroresFiltros.errSomatico
               : ""}
           </label>
         </div>
@@ -327,8 +334,8 @@ export default function () {
             onChange={(e) => setAddRitual(e.target.checked)}
           ></input>
           <label htmlFor="ritual">
-            {typeof erroresAdd.errSomatico !== "undefined"
-              ? erroresAdd.errSomatico
+            {typeof erroresFiltros.errSomatico !== "undefined"
+              ? erroresFiltros.errSomatico
               : ""}
           </label>
         </div>
@@ -342,8 +349,8 @@ export default function () {
             onChange={(e) => setAddDescCorta(e.target.value)}
           ></textarea>
           <label htmlFor="descCorta">
-            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
-              ? erroresAdd.errAlcanceLanzamiento
+            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
+              ? erroresFiltros.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -357,8 +364,8 @@ export default function () {
             onChange={(e) => setAddDescLarga(e.target.value)}
           ></textarea>
           <label htmlFor="descLarga">
-            {typeof erroresAdd.errAlcanceLanzamiento !== "undefined"
-              ? erroresAdd.errAlcanceLanzamiento
+            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
+              ? erroresFiltros.errAlcanceLanzamiento
               : ""}
           </label>
         </div>
@@ -464,6 +471,7 @@ export default function () {
             const peticion = await fetch("http://localhost:3000/conjuros/add", {
               method: "POST",
               body: data,
+              credentials: "include",
             });
             const result = await peticion; /*.json()*/
             console.log(result);
