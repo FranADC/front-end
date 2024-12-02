@@ -2,8 +2,6 @@ import "./Header.css";
 import Logo from "../imagenes/marca/logo.png";
 
 export default function ({ usuario }) {
-  console.log(usuario);
-
   const handleLogout = async () => {
     try {
       const response = await fetch("http://localhost:3000/logout", {

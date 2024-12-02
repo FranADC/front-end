@@ -74,6 +74,16 @@ function App() {
           }
         />
         <Route
+          path="/conjuros/modificar/:ID"
+          element={
+            sesion && roleAdmin.includes(usuario.rol) ? (
+              <CompoConjuroUpdate />
+            ) : (
+              <CompoError404 />
+            )
+          }
+        />
+        <Route
           path="/conjuros/añadir"
           element={
             sesion && roleAdmin.includes(usuario.rol) ? (
@@ -87,6 +97,7 @@ function App() {
           path="/conjuros/modificar/:ID"
           element={<CompoConjuroUpdate />}
         />
+        <Route path="/error/404" element={<CompoError404 />} />
       </Routes>
       <CompoFooter />
     </BrowserRouter>

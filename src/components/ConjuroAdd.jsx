@@ -24,11 +24,12 @@ export default function () {
   const [addHechicero, setAddHechicero] = useState("");
   const [addMago, setAddMago] = useState("");
   const [addPaladin, setAddPaladin] = useState("");
-  const [addImagen, setAddImagen] = useState("");
+  //const [addImagen, setAddImagen] = useState("");
 
   const [dbEscuelasMagia, setDbEscuelasMagia] = useState([]);
   const [dbTiemposLanzamiento, setDbTiemposLanzamiento] = useState([]);
   const [dbAlcanceLanzamiento, setDbAlcanceLanzamiento] = useState([]);
+  const [dbNivelesMagia, setDbNivelesMagia] = useState([]);
 
   const [dbConjuros, setDbConjuros] = useState([]);
   const [erroresFiltros, setErroresFiltros] = useState("");
@@ -88,6 +89,23 @@ export default function () {
       }
     }
     fetchAlcance();
+
+    async function fetchNivel() {
+      try {
+        const peticion = await fetch("http://localhost:3000/nivelesMagia", {
+          credentials: "include",
+        });
+        if (!peticion.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await peticion.json();
+
+        setDbNivelesMagia(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchNivel();
   }, []);
 
   function formDataSubmit(newFile) {
@@ -147,13 +165,11 @@ export default function () {
             <option value="" defaultValue>
               -
             </option>
-            <option value="0">Trucos</option>
-            <option value="1">Nivel 1</option>
-            <option value="2">Nivel 2</option>
-            <option value="3">Nivel 3</option>
-            <option value="4">Nivel 4</option>
-            <option value="5">Nivel 5</option>
-            <option value="6">Nivel 6</option>
+            {dbNivelesMagia.map((nivel) => (
+              <option key={nivel.id_nivel} value={nivel.id_nivel}>
+                {nivel.nombre_nivel}
+              </option>
+            ))}
           </select>
           <label htmlFor="nivelConjuro">
             {typeof erroresFiltros.errNivelConjuro !== "undefined"
@@ -236,8 +252,8 @@ export default function () {
             onChange={(e) => setAddRangoArea(e.target.value)}
           />
           <label htmlFor="rangoArea">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresFiltros.errRangoArea !== "undefined"
+              ? erroresFiltros.errRangoArea
               : ""}
           </label>
         </div>
@@ -264,8 +280,8 @@ export default function () {
             onChange={(e) => setAddVerbal(e.target.checked)}
           ></input>
           <label htmlFor="verbal">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresFiltros.errVerbal !== "undefined"
+              ? erroresFiltros.errVerbal
               : ""}
           </label>
         </div>
@@ -278,8 +294,8 @@ export default function () {
             onChange={(e) => setAddMaterial(e.target.checked)}
           ></input>
           <label htmlFor="material">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresFiltros.errMaterial !== "undefined"
+              ? erroresFiltros.errMaterial
               : ""}
           </label>
         </div>
@@ -292,8 +308,8 @@ export default function () {
             onChange={(e) => setAddMaterialDesc(e.target.value)}
           />
           <label htmlFor="materialDesc">
-            {typeof erroresFiltros.errNombreConjuro !== "undefined"
-              ? erroresFiltros.errNombreConjuro
+            {typeof erroresFiltros.errMaterialDesc !== "undefined"
+              ? erroresFiltros.errMaterialDesc
               : ""}
           </label>
         </div>
@@ -306,8 +322,8 @@ export default function () {
             onChange={(e) => setAddDuracion(e.target.value)}
           />
           <label htmlFor="duracion">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresFiltros.errDuracion !== "undefined"
+              ? erroresFiltros.errDuracion
               : ""}
           </label>
         </div>
@@ -320,8 +336,8 @@ export default function () {
             onChange={(e) => setAddConcentracion(e.target.checked)}
           ></input>
           <label htmlFor="concentracion">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresFiltros.errConcentracion !== "undefined"
+              ? erroresFiltros.errConcentracion
               : ""}
           </label>
         </div>
@@ -334,8 +350,8 @@ export default function () {
             onChange={(e) => setAddRitual(e.target.checked)}
           ></input>
           <label htmlFor="ritual">
-            {typeof erroresFiltros.errSomatico !== "undefined"
-              ? erroresFiltros.errSomatico
+            {typeof erroresFiltros.errRitual !== "undefined"
+              ? erroresFiltros.errRitual
               : ""}
           </label>
         </div>
@@ -349,8 +365,8 @@ export default function () {
             onChange={(e) => setAddDescCorta(e.target.value)}
           ></textarea>
           <label htmlFor="descCorta">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresFiltros.errDescCorta !== "undefined"
+              ? erroresFiltros.errDescCorta
               : ""}
           </label>
         </div>
@@ -364,84 +380,124 @@ export default function () {
             onChange={(e) => setAddDescLarga(e.target.value)}
           ></textarea>
           <label htmlFor="descLarga">
-            {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-              ? erroresFiltros.errAlcanceLanzamiento
+            {typeof erroresFiltros.errDescLarga !== "undefined"
+              ? erroresFiltros.errDescLarga
               : ""}
           </label>
         </div>
         <div>
-          <label htmlFor="conjuroBardo"></label>
+          <label htmlFor="conjuroBardo">Bardo</label>
           <input
             type="checkbox"
             id="conjuroBardo"
             name="conjuroBardo"
             onChange={(e) => setAddBardo(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroBardo">
+            {typeof erroresFiltros.errBardo !== "undefined"
+              ? erroresFiltros.errBardo
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroBrujo"></label>
+          <label htmlFor="conjuroBrujo">Brujo</label>
           <input
             type="checkbox"
             id="conjuroBrujo"
             name="conjuroBrujo"
             onChange={(e) => setAddBrujo(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroBrujo">
+            {typeof erroresFiltros.errBrujo !== "undefined"
+              ? erroresFiltros.errBrujo
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroClerigo"></label>
+          <label htmlFor="conjuroClerigo">Clerigo</label>
           <input
             type="checkbox"
             id="conjuroClerigo"
             name="conjuroClerigo"
             onChange={(e) => setAddClerigo(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroClerigo">
+            {typeof erroresFiltros.errClerigo !== "undefined"
+              ? erroresFiltros.errClerigo
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroDruida"></label>
+          <label htmlFor="conjuroDruida">Druida</label>
           <input
             type="checkbox"
             id="conjuroDruida"
             name="conjuroDruida"
             onChange={(e) => setAddDruida(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroDruida">
+            {typeof erroresFiltros.errDruida !== "undefined"
+              ? erroresFiltros.errDruida
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroExplorador"></label>
+          <label htmlFor="conjuroExplorador">Explorador</label>
           <input
             type="checkbox"
             id="conjuroExplorador"
             name="conjuroExplorador"
             onChange={(e) => setAddExplorador(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroExplorador">
+            {typeof erroresFiltros.errExplorador !== "undefined"
+              ? erroresFiltros.errExplorador
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroHechicero"></label>
+          <label htmlFor="conjuroHechicero">Hechicero</label>
           <input
             type="checkbox"
             id="conjuroHechicero"
             name="conjuroHechicero"
             onChange={(e) => setAddHechicero(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroHechicero">
+            {typeof erroresFiltros.errHechicero !== "undefined"
+              ? erroresFiltros.errHechicero
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroMago"></label>
+          <label htmlFor="conjuroMago">Mago</label>
           <input
             type="checkbox"
             id="conjuroMago"
             name="conjuroMago"
             onChange={(e) => setAddMago(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroMago">
+            {typeof erroresFiltros.errMago !== "undefined"
+              ? erroresFiltros.errMago
+              : ""}
+          </label>
 
-          <label htmlFor="conjuroPaladin"></label>
+          <label htmlFor="conjuroPaladin">Paladin</label>
           <input
             type="checkbox"
             id="conjuroPaladin"
             name="conjuroPaladin"
             onChange={(e) => setAddPaladin(e.target.checked)}
           ></input>
+          <label htmlFor="conjuroPaladin">
+            {typeof erroresFiltros.errPaladin !== "undefined"
+              ? erroresFiltros.errPaladin
+              : ""}
+          </label>
         </div>
+        {typeof erroresFiltros.errClase !== "undefined"
+          ? erroresFiltros.errClase
+          : ""}
         <div>
-          <input
-            type="file"
-            src=""
-            alt=""
-            id="imgfile"
-            onChange={(e) => setAddImagen(e.target.files[0])}
-          />
+          <input type="file" src="" alt="" id="imgfile" />
+          {typeof erroresFiltros.errImagen !== "undefined"
+            ? erroresFiltros.errImagen
+            : ""}
         </div>
 
         <input
@@ -468,13 +524,25 @@ export default function () {
               data = formDataSubmit("error");
             }
 
-            const peticion = await fetch("http://localhost:3000/conjuros/add", {
-              method: "POST",
-              body: data,
-              credentials: "include",
-            });
-            const result = await peticion; /*.json()*/
-            console.log(result);
+            try {
+              const peticion = await fetch(
+                "http://localhost:3000/conjuros/add",
+                {
+                  method: "POST",
+                  body: data,
+                  credentials: "include",
+                }
+              );
+              const result = await peticion.json();
+              if (!peticion.ok) {
+                setErroresFiltros(result);
+                throw new Error("Network response was not ok");
+              } else {
+                setErroresFiltros("");
+              }
+            } catch (err) {
+              console.log(err);
+            }
           }}
         />
         <input

@@ -1,7 +1,6 @@
 //import "./Header.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 export default function () {
   const { ID } = useParams();
 
@@ -9,12 +8,17 @@ export default function () {
 
   //cuando una variable sufre un cambio (la variable en []), se ejecuta el codigo del interior.`http://localhost:3000/conjuro/${ID}`
   useEffect(() => {
-    async function fetchData() {
+    async function fetchConjuroID() {
       try {
         const peticion = await fetch("http://localhost:3000/conjuros/" + ID, {
           credentials: "include",
         });
         const data = await peticion.json();
+        console.log(data == "");
+        if (data == "") {
+          window.location.href = "/error/404";
+        }
+
         if (!peticion.ok) {
           setErroresFiltros(data);
           throw new Error("Network response was not ok");
@@ -26,10 +30,13 @@ export default function () {
         console.log(err);
       }
     }
-    fetchData(); //ejecutar la funcion de arriba
+    fetchConjuroID(); //ejecutar la funcion de arriba
   }, []); //[] para que se carge cuando se inicia la página
   return (
     <>
+      <div>
+        <a href={"/conjuros/modificar/" + dbConjuro.id_conjuro}>editar</a>
+      </div>
       <div>
         <p>Nombre conjuro</p>
         <p>{dbConjuro.Nombre_conjuro}</p>

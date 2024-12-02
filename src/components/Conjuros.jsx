@@ -11,7 +11,7 @@ export default function () {
   const [filtroMaterial, setFiltroMaterial] = useState("");
   const [filtroConcentracion, setFiltroConcentracion] = useState("");
   const [filtroRitual, setFiltroRitual] = useState("");
-  const [filtroClaseMagia, setClaseMagia] = useState("");
+  const [filtroClaseMagia, setFiltroClaseMagia] = useState("");
 
   let [orderBy, setOrderBy] = useState("");
   let [order, setOrder] = useState("");
@@ -23,8 +23,11 @@ export default function () {
   const [dbTiemposLanzamiento, setDbTiemposLanzamiento] = useState([]);
   const [dbAlcanceLanzamiento, setDbAlcanceLanzamiento] = useState([]);
   const [dbClasesMagia, setDbClasesMagia] = useState([]);
+  const [dbNivelesMagia, setDbNivelesMagia] = useState([]);
 
   const [dbConjuros, setDbConjuros] = useState([]);
+  console.log(dbConjuros);
+
   const [erroresFiltros, setErroresFiltros] = useState("");
 
   useEffect(() => {
@@ -100,6 +103,23 @@ export default function () {
       }
     }
     fetchClase();
+
+    async function fetchNivel() {
+      try {
+        const peticion = await fetch("http://localhost:3000/nivelesMagia", {
+          credentials: "include",
+        });
+        if (!peticion.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await peticion.json();
+
+        setDbNivelesMagia(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchNivel();
 
     fetchConjurosCount();
   }, []);
@@ -189,6 +209,7 @@ export default function () {
               : ""}
           </label>
         </div>
+
         <div>
           <label htmlFor="nivelConjuro">Nivel conjuro</label>
           <select
@@ -201,13 +222,11 @@ export default function () {
             <option value="" defaultValue>
               -
             </option>
-            <option value="0">Trucos</option>
-            <option value="1">Nivel 1</option>
-            <option value="2">Nivel 2</option>
-            <option value="3">Nivel 3</option>
-            <option value="4">Nivel 4</option>
-            <option value="5">Nivel 5</option>
-            <option value="6">Nivel 6</option>
+            {dbNivelesMagia.map((nivel) => (
+              <option key={nivel.id_nivel} value={nivel.id_nivel}>
+                {nivel.nombre_nivel}
+              </option>
+            ))}
           </select>
           <label htmlFor="nivelConjuro">
             {typeof erroresFiltros.errNivelConjuro !== "undefined"
@@ -294,7 +313,7 @@ export default function () {
             name="claseMagia"
             id="claseMagia"
             onChange={(e) => {
-              setClaseMagia(e.target.value);
+              setFiltroClaseMagia(e.target.value);
             }}
           >
             <option value="" defaultValue>
@@ -612,7 +631,7 @@ export default function () {
                   </a>
                 </th>
                 <th>{conjuro.nombre_conjuro}</th>
-                <th>{conjuro.nivel_conjuro}</th>
+                <th>{conjuro.nombre_nivel}</th>
                 <th>{conjuro.nombre_escuela}</th>
                 <th>{conjuro.nombre_tiempo}</th>
                 <th>{conjuro.rango_area}</th>
