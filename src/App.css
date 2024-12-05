@@ -1,6 +1,43 @@
 * {
-  color: rgb(76, 175, 81);
 }
+
+i *,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: tiamatRegular;
+  src: url("/fuentes/tiamatregular.woff");
+}
+
+h1,
+h2,
+h3,
+.tiamat {
+  font-family: tiamatRegular;
+}
+
 body {
+  margin: 0;
   color: black;
+  background-repeat: repeat;
+  /*background-image: url("/imagenes/fondo/fondoHumo.jpg");
+  background-size: cover;
+  background-attachment: fixed;*/
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #fbcea0;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }

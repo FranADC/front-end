@@ -1,0 +1,133 @@
+.divbody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  background: url("/imagenes/fondo/fondoConjuros.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  height: 100vh;
+  background-position: static;
+}
+
+.formConjurosUpdate {
+  max-width: 1400px;
+  width: 90%;
+  padding: 20px;
+  flex-wrap: wrap;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-style: solid;
+}
+
+.filaForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.filaForm > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px;
+}
+
+.divInputCheck,
+select {
+  width: 200px;
+}
+
+.divbody,
+.divInputCheck,
+.divInputCheckClases {
+  text-align: center;
+}
+
+.divInputText input {
+  padding: 0px;
+  width: 196px;
+}
+
+textarea {
+  width: 100%;
+}
+.labelError {
+  height: 18px;
+  text-align: center;
+  color: red;
+}
+
+.divInputImg {
+  text-align: center;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  margin: 10px;
+  font-family: tiamatRegular;
+  background: linear-gradient(135deg, #fff, #fbcea0 66%, #fbcfa0);
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.textError {
+  font-size: 14px;
+  color: red;
+}
+@media only screen and (max-width: 1024px) {
+  .filaForm > div {
+    padding: 12px;
+  }
+
+  .divInputText input {
+    width: 266px;
+  }
+
+  select {
+    width: 270px;
+  }
+
+  .divInputCheck {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 704px) {
+  .divInputCheckClases {
+    width: 18%;
+  }
+
+  .divInputText,
+  .divInputText input {
+    width: 100%;
+  }
+
+  .divSelect,
+  .divSelect select {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 431px) {
+  .divInputCheckClases {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .divInputImg img {
+    width: 100%;
+  }
+}

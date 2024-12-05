@@ -1,0 +1,265 @@
+.divTabla,
+.divBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 25px;
+  color: #fbcfa0;
+}
+
+.imgIconoPaginacion {
+  width: 50px;
+  height: 50px;
+}
+
+.iconoOrder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.iconoOrder img {
+  width: 15px;
+  height: 15px;
+}
+
+.textoPaginacion {
+  font-size: 40px;
+  color: #fbcfa0;
+}
+.divPaginacion {
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+body {
+  background: url("/imagenes/fondo/fondoConjuros.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  height: 100vh;
+  background-position: static;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  margin: 10px;
+  font-family: tiamatRegular;
+  background: linear-gradient(135deg, #fff, #fbcea0 66%, #fbcfa0);
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.formsConjurosFiltro {
+  background-size: cover;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.filaFormPricipal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.filaFormPricipal > div {
+  display: flex;
+  flex-direction: column;
+  height: 65px;
+  margin: 5px 10px;
+}
+
+.filaFormPricipal select {
+  width: 200px;
+  margin: 5px 0px;
+}
+
+.filaFormPricipal input {
+  padding: 0px;
+  margin: 5px 0px;
+  width: 196px;
+}
+
+.filaFormSubmit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 540) {
+  .filaFormPricipal select {
+    width: 100%;
+  }
+
+  .filaFormPricipal > div {
+    width: max-content;
+  }
+}
+
+.textError {
+  font-size: 14px;
+  color: red;
+}
+
+.divTabla,
+.formsConjurosFiltro {
+  width: 90%;
+}
+
+.filaTabla {
+  width: 100%;
+}
+
+.filaTabla {
+  text-align: center;
+}
+
+.filaSuperior {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-bottom-width: 4px;
+  border-top-style: solid;
+  padding: 5px;
+}
+
+.filaHover:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.filaSuperior > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filaInferior {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 15px;
+}
+
+.filaInferior > div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px;
+}
+
+.filaInferiorBotones {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.filaInferior > div > * {
+  margin: 2px;
+}
+
+.textoDescCorta {
+  text-align: left;
+}
+/*-------------------------------------------*/
+.miniaturaConjuro {
+  width: 40px;
+  height: 40px;
+}
+
+.filaImagen {
+  width: 40px;
+}
+
+.miniaturaConjuro {
+  width: 40px;
+  height: 40px;
+}
+
+.filaNombre {
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filaNivel {
+  width: 80px;
+}
+
+.filaEscuela {
+  width: 120px;
+}
+
+.filaTiempo {
+  width: 140px;
+}
+
+.filaRangoAlcance {
+  width: 160px;
+}
+
+.filaComponentes {
+  width: 100px;
+}
+
+.filaBoton {
+  width: 25px;
+}
+
+.miniaturaBoton {
+  width: 40px;
+  height: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .divTabla {
+    width: 100%;
+  }
+  .filaRangoAlcance {
+    display: none;
+  }
+
+  .filaComponentes {
+    display: none;
+  }
+
+  .filaTiempo {
+    display: none;
+  }
+
+  .filaInferiorInt {
+    flex-wrap: wrap;
+  }
+
+  .filaInferiorInt > * {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .filaEscuela {
+    display: none;
+  }
+
+  .filaFormPricipal div,
+  .filaFormPricipal select,
+  .filaFormPricipal input {
+    width: 100%;
+  }
+}

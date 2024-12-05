@@ -11,6 +11,8 @@ import {
 //Componentes
 import CompoHeader from "./components/Header";
 import CompoFooter from "./components/Footer";
+
+import CompoIndex from "./components/Index";
 import CompoConjuros from "./components/Conjuros";
 import CompoConjuroID from "./components/ConjuroID";
 import CompoConjuroAdd from "./components/ConjuroAdd";
@@ -52,12 +54,12 @@ function App() {
       <Routes>
         <Route path="/registrarse" element={<CompoRegistro />} />
         <Route path="/login" element={<CompoLogin />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<CompoIndex />} />
         <Route
           path="/conjuros"
           element={
             sesion && rolesGenerales.includes(usuario.rol) ? (
-              <CompoConjuros />
+              <CompoConjuros usuario={usuario} />
             ) : (
               <CompoErrorRegistro />
             )
@@ -67,7 +69,7 @@ function App() {
           path="/conjuros/:ID"
           element={
             sesion && rolesGenerales.includes(usuario.rol) ? (
-              <CompoConjuroID />
+              <CompoConjuroID usuario={usuario} />
             ) : (
               <CompoErrorRegistro />
             )
@@ -105,7 +107,11 @@ function App() {
 }
 
 function Home() {
-  return <p>Hola mundo</p>;
+  return (
+    <>
+      <div>Hola mundo</div>
+    </>
+  );
 }
 
 export default App;

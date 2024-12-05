@@ -1,18 +1,96 @@
-.cabeceraDiv {
-  background-color: black;
-  color: whitesmoke;
+header {
+  position: sticky;
+  height: 180px;
+  background-image: url("/imagenes/fondo/fondoCabecera.png");
+  color: #fbcfa0;
+}
+
+.cabeceraPrincipal {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 25px;
+}
+
+.cabeceraSuperior {
+  display: flex;
+  padding-bottom: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divMenuNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  margin: 20px;
+}
+
+.divMenuNav > ul {
+  padding: 0px;
+}
+
+.cabeceraSupBotonesCerrar {
   display: flex;
   flex-direction: column;
 }
 
-.cabPrincipal {
+.cabeceraSupBotones {
+  height: 120px;
+}
+.cabeceraSupBotones,
+.cerrarSesion {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0px 25px;
+  align-items: center;
+}
+.cerrarSesion img {
+  margin-left: 10px;
+}
+.iconoSesion {
+  width: 20px;
+  height: 20px;
 }
 
-.cabPrincipalLogo {
+.botonCerrarSession {
+}
+
+.cabeceraInferior {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.botonNavMovil {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .cabeceraSuperior {
+    justify-content: center;
+  }
+
+  .cabeceraSupBotones {
+    display: none;
+  }
+
+  .cabeceraInferior {
+    justify-content: center;
+  }
+
+  .botonNavMovil {
+    display: block;
+  }
+
+  .divMenuNav {
+    display: none;
+  }
+}
+
+.cabeceraSupLogo {
   width: 250px;
   height: 100px;
 }
@@ -22,22 +100,41 @@ ul {
   list-style: none;
 }
 
-.cabNavegacionMenu li a {
+.menuNavPantalla li a {
   text-decoration: none;
   display: block;
 }
 
-.cabNavegacionMenu > li {
+.menuNavPantalla > li {
   float: left;
   padding: 0px 10px;
 }
 
-.cabNavegacionMenu li ul {
+.menuNavPantalla li ul {
   display: none;
   position: absolute;
   min-width: 140px;
 }
 
-.cabNavegacionMenu li:hover > ul {
+.menuNavPantalla li:hover > ul {
   display: block;
+}
+/**/
+.divNavAbsoluto {
+  color: #fbcfa0;
+  position: absolute;
+  top: 0;
+  display: none;
+  min-height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  z-index: 10000;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuNavAbsoluto {
 }
