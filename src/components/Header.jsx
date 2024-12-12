@@ -23,46 +23,27 @@ export default function ({ usuario }) {
       <header>
         <div className="cabeceraPrincipal">
           <div className="cabeceraSuperior">
-            <img
-              className="cabeceraSupLogo"
-              src="http://localhost:5173/imagenes/iconos/logo.png"
-              alt=""
-            />
+            <a href="/">
+              <img
+                className="cabeceraSupLogo"
+                src="http://localhost:5173/imagenes/iconos/logo.png"
+                alt=""
+              />
+            </a>
             <div className="divMenuNav">
               <ul className="menuNavPantalla">
                 <li>
-                  Como jugar
-                  <ul>
-                    <li>
-                      <a href="">Crear un personaje</a>
-                    </li>
-                    <li>
-                      <a href="">Conceptos básicos</a>
-                    </li>
-                    <li>
-                      <a href="">Conceptos avanzados</a>
-                    </li>
-                  </ul>
+                  <a href="/clases">Classes</a>
                 </li>
                 <li>
-                  Reglas
-                  <ul>
-                    <li>
-                      <a href="">Classes</a>
-                    </li>
-                    <li>
-                      <a href="">Razas</a>
-                    </li>
-                    <li>
-                      <a href="">Transfondos</a>
-                    </li>
-                    <li>
-                      <a href="/conjuros">Conjuros</a>
-                    </li>
-                  </ul>
+                  <a href="/razas">Razas</a>
                 </li>
-                <li>Reglas</li>
-                <li>Reglas</li>
+                <li>
+                  <a href="/transfondos">Transfondos</a>
+                </li>
+                <li>
+                  <a href="/conjuros">Conjuros</a>
+                </li>
               </ul>
             </div>
             <div className="cabeceraSupBotones">
@@ -121,7 +102,8 @@ export default function ({ usuario }) {
           </div>
 
           <div className="cabeceraInferior">
-            <button
+            <img
+              src="http://localhost:5173/imagenes/iconos/hamburguesa.svg"
               className="botonNavMovil"
               onClick={() => {
                 document.getElementById("divNavAbsoluto").style.display =
@@ -129,44 +111,46 @@ export default function ({ usuario }) {
                 document.body.style.overflow = "hidden";
                 console.log("okay");
               }}
-            >
-              hamburgesa
-            </button>
+            />
           </div>
         </div>
       </header>
       <div id="divNavAbsoluto" className="divNavAbsoluto">
         <div className="menuNavAbsoluto"></div>
-        <button
+        <img
+          src="http://localhost:5173/imagenes/iconos/salir.svg"
           onClick={() => {
             document.getElementById("divNavAbsoluto").style.display = "none";
             document.body.style.overflow = "visible";
             console.log("okay");
           }}
-        >
-          reducir
-        </button>
-        <h1>Como jugar</h1>
-        <h1>Classes</h1>
-        <h1>Classes</h1>
-        <h1>Classes</h1>
-        <h2>
+        />
+        <h1>
+          <a href="/clases">Clases</a>
+        </h1>
+        <h1>
+          <a href="/razas">Razas</a>
+        </h1>
+        <h1>
+          <a href="/transfondos">Transfondos</a>
+        </h1>
+        <h1>
           <a href="/conjuros">Conjuros</a>
-        </h2>
+        </h1>
         <div>
           {usuario == undefined ? (
             <>
-              <button>
-                <a href="/login">sesión</a>
-              </button>
-              <button>
-                <a href="/registrarse">registrarse</a>
-              </button>
+              <a href="/login">
+                <input type="button" value="Iniciar sesión" />
+              </a>
+              <a href="/registrarse">
+                <input type="button" value="Registrarse" />
+              </a>
             </>
           ) : (
             <>
-              <p>bienvenido: {usuario.nombre}</p>
-              <button onClick={(e) => handleLogout()}>cerrarSession</button>
+              <p>Bienvenido: {usuario.nombre}</p>
+              <button onClick={(e) => handleLogout()}>Cerrar sesión</button>
             </>
           )}
         </div>

@@ -1,0 +1,27 @@
+.columnaNivelProg,
+.columnaProficienciaProg,
+.columnaInfo1Prog,
+.columnaInfo2Prog,
+.columnaInfo3Prog {
+  width: 90px;
+}
+
+.columnaCaracteristicasProg {
+  width: 180px;
+}
+
+.filaMagiaExtra {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  text-align: center;
+  width: 900px;
+}
+
+.columnaMagiaExtra {
+  width: 270px;
+}
+
+.columnaHuecoProg {
+  width: 45px;
+}

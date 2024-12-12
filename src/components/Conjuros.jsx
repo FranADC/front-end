@@ -191,8 +191,11 @@ export default function ({ usuario }) {
   }
   return (
     <>
+      {console.log("a")}
+
       <div className="divBody">
         <form className="formsConjurosFiltro" id="formsConjurosFiltro">
+          <h2>Filtros</h2>
           <div className="filaFormPricipal">
             <div>
               <label htmlFor="nombreConjuro" className="tiamat">
@@ -324,7 +327,7 @@ export default function ({ usuario }) {
 
             <div>
               <label htmlFor="claseMagia" className="tiamat">
-                Escuela magia
+                Clase magica
               </label>
               <select
                 name="claseMagia"
@@ -482,7 +485,7 @@ export default function ({ usuario }) {
             />
             <input
               type="submit"
-              value="reiniciar valores"
+              value="Reiniciar valores"
               onClick={(e) => {
                 document.getElementById("formConjurosFiltro").reset();
               }}
@@ -496,331 +499,344 @@ export default function ({ usuario }) {
             )}
           </div>
         </form>
-        {dbConjuros.length === 0 ? (
-          <p>No se han encontrado hechizos con esos filtros.</p>
-        ) : (
-          <div className="divTabla">
-            <div className="filaTabla">
-              <div className="filaSuperior">
-                <div className="filaImagen"></div>
-                <div
-                  className="filaNombre iconoOrder"
-                  onClick={(e) => {
-                    document.getElementById("orderNivel").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderEscuela").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderTiempo").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    if (orderBy != "nombre_conjuro") {
-                      setOrderBy("nombre_conjuro");
-                      setOrder("ASC");
-                      document.getElementById("orderNombre").src =
-                        "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
-                    } else {
-                      if (order == "ASC") {
-                        setOrder("DESC");
-                        document.getElementById("orderNombre").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
-                      } else {
-                        setOrderBy("");
-                        setOrder("");
-                        document.getElementById("orderNombre").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                      }
-                    }
-                  }}
-                >
-                  <p className="tiamat">Nombre</p>
-                  <img
-                    id="orderNombre"
-                    src="/imagenes/iconos/flecha-vertical.svg"
-                  />
-                </div>
-                <div
-                  className="filaNivel iconoOrder"
-                  onClick={(e) => {
-                    document.getElementById("orderNombre").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderEscuela").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderTiempo").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    if (orderBy != "nivel_conjuro") {
-                      setOrderBy("nivel_conjuro");
-                      setOrder("ASC");
-                      document.getElementById("orderNivel").src =
-                        "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
-                    } else {
-                      if (order == "ASC") {
-                        setOrder("DESC");
-                        document.getElementById("orderNivel").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
-                      } else {
-                        setOrderBy("");
-                        setOrder("");
+        <div className="divTabla">
+          {dbConjuros.length === 0 ? (
+            <p>No se han encontrado hechizos con esos filtros.</p>
+          ) : (
+            <>
+              <div className="divTabla">
+                <div className="filaTabla">
+                  <div className="filaSuperior">
+                    <div className="filaImagen"></div>
+                    <div
+                      className="filaNombre iconoOrder"
+                      onClick={(e) => {
                         document.getElementById("orderNivel").src =
                           "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                      }
-                    }
-                  }}
-                >
-                  <p className="tiamat">Nivel</p>
-                  <img
-                    id="orderNivel"
-                    src="/imagenes/iconos/flecha-vertical.svg"
-                  />
-                </div>
-                <div
-                  className="filaEscuela iconoOrder"
-                  onClick={(e) => {
-                    document.getElementById("orderNombre").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderNivel").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderTiempo").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    if (orderBy != "escuela_magia") {
-                      setOrderBy("escuela_magia");
-                      setOrder("ASC");
-                      document.getElementById("orderEscuela").src =
-                        "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
-                    } else {
-                      if (order == "ASC") {
-                        setOrder("DESC");
-                        document.getElementById("orderEscuela").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
-                      } else {
-                        setOrderBy("");
-                        setOrder("");
                         document.getElementById("orderEscuela").src =
                           "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                      }
-                    }
-                  }}
-                >
-                  <p className="tiamat">Escuela</p>
-                  <img
-                    id="orderEscuela"
-                    src="/imagenes/iconos/flecha-vertical.svg"
-                  />
-                </div>
-                <div
-                  className="filaTiempo iconoOrder"
-                  onClick={(e) => {
-                    document.getElementById("orderNombre").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderNivel").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    document.getElementById("orderEscuela").src =
-                      "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                    if (orderBy != "tiempo_lanz") {
-                      setOrderBy("tiempo_lanz");
-                      setOrder("ASC");
-                      document.getElementById("orderTiempo").src =
-                        "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
-                    } else {
-                      if (order == "ASC") {
-                        setOrder("DESC");
-                        document.getElementById("orderTiempo").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
-                      } else {
-                        setOrderBy("");
-                        setOrder("");
                         document.getElementById("orderTiempo").src =
                           "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
-                      }
-                    }
-                  }}
-                >
-                  <p className="tiamat">Tiempo de lanzamiento</p>
-                  <img
-                    id="orderTiempo"
-                    src="/imagenes/iconos/flecha-vertical.svg"
-                  />
-                </div>
-                <div className="filaRangoAlcance">
-                  <p className="tiamat">Rango/Area</p>
-                </div>
-                <div className="filaComponentes">
-                  <p className="tiamat">Componentes</p>
-                </div>
-                <div className="filaBoton"></div>
-              </div>
-            </div>
-            {dbConjuros.map((conjuro) => (
-              <div className="filaTabla" key={"key" + conjuro.id_conjuro}>
-                <div className="filaSuperior filaHover">
-                  <div className="filaImagen">
-                    <img
-                      src={"http://localhost:3000" + conjuro.imagen_conjuro}
-                      alt=""
-                      className="miniaturaConjuro"
-                    />
-                  </div>
-                  <div className="filaNombre">
-                    <p>{conjuro.nombre_conjuro}</p>
-                    {conjuro.concentracion == 1 ? (
+                        if (orderBy != "nombre_conjuro") {
+                          setOrderBy("nombre_conjuro");
+                          setOrder("ASC");
+                          document.getElementById("orderNombre").src =
+                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                        } else {
+                          if (order == "ASC") {
+                            setOrder("DESC");
+                            document.getElementById("orderNombre").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                          } else {
+                            setOrderBy("");
+                            setOrder("");
+                            document.getElementById("orderNombre").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          }
+                        }
+                      }}
+                    >
+                      <p className="tiamat">Nombre</p>
                       <img
-                        src="http://localhost:5173/imagenes/iconos/concetracion.png"
-                        alt=""
+                        id="orderNombre"
+                        src="/imagenes/iconos/flecha-vertical.svg"
                       />
-                    ) : (
-                      ""
-                    )}
-                    {conjuro.ritual == 1 ? (
+                    </div>
+                    <div
+                      className="filaNivel iconoOrder"
+                      onClick={(e) => {
+                        document.getElementById("orderNombre").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        document.getElementById("orderEscuela").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        document.getElementById("orderTiempo").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        if (orderBy != "nivel_conjuro") {
+                          setOrderBy("nivel_conjuro");
+                          setOrder("ASC");
+                          document.getElementById("orderNivel").src =
+                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                        } else {
+                          if (order == "ASC") {
+                            setOrder("DESC");
+                            document.getElementById("orderNivel").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                          } else {
+                            setOrderBy("");
+                            setOrder("");
+                            document.getElementById("orderNivel").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          }
+                        }
+                      }}
+                    >
+                      <p className="tiamat">Nivel</p>
                       <img
-                        src="http://localhost:5173/imagenes/iconos/ritual.png"
-                        alt=""
+                        id="orderNivel"
+                        src="/imagenes/iconos/flecha-vertical.svg"
                       />
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                  <div className="filaNivel">
-                    <p>{conjuro.nombre_nivel}</p>
-                  </div>
-                  <div className="filaEscuela">
-                    <p>{conjuro.nombre_escuela}</p>
-                  </div>
-                  <div className="filaTiempo">
-                    <p>{conjuro.nombre_tiempo}</p>
-                  </div>
-                  <div className="filaRangoAlcance">
-                    <p>{conjuro.rango_area}</p>
-                  </div>
-                  <div className="filaComponentes">
-                    <p>
-                      {conjuro.somatico == 1 ? " S " : ""}
-                      {conjuro.verbal == 1 ? " V " : ""}
-                      {conjuro.material == 1 ? " M " : ""}
-                    </p>
-                  </div>
-                  <div
-                    className="filaBoton"
-                    onClick={() => {
-                      const estado = document.getElementById(
-                        "filaInferior" + conjuro.id_conjuro
-                      ).style.display;
-                      if (estado == "none") {
-                        document.getElementById(
-                          "filaInferior" + conjuro.id_conjuro
-                        ).style.display = "flex";
-                        document.getElementById(
-                          "botonTabla" + conjuro.id_conjuro
-                        ).src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
-                      } else {
-                        document.getElementById(
-                          "filaInferior" + conjuro.id_conjuro
-                        ).style.display = "none";
-                        document.getElementById(
-                          "botonTabla" + conjuro.id_conjuro
-                        ).src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
-                      }
-                    }}
-                  >
-                    <img
-                      id={"botonTabla" + conjuro.id_conjuro}
-                      src={"http://localhost:5173/imagenes/iconos/sumar.svg"}
-                      alt=""
-                      className="miniaturaConjuro"
-                    />
-                  </div>
-                </div>
-                <div
-                  style={{ display: "none" }}
-                  className="filaInferior"
-                  id={"filaInferior" + conjuro.id_conjuro}
-                >
-                  <div>
-                    <p className="tiamat">Nivel</p>
-                    <p>{conjuro.nombre_nivel}</p>
-                  </div>
-                  <div>
-                    <p className="tiamat">Escuela</p>
-                    <p>{conjuro.nombre_escuela}</p>
-                  </div>
-                  <div>
-                    <p className="tiamat">Tiempo de lanzamiento</p>
-                    <p>{conjuro.nombre_tiempo}</p>
-                  </div>
-                  <div>
-                    <p className="tiamat">Rango/Area</p>
-                    <p>{conjuro.rango_area}</p>
-                  </div>
-                  <div>
-                    <p className="tiamat">Componentes</p>
-                    <p>
-                      {conjuro.somatico == 1 ? " S " : ""}
-                      {conjuro.verbal == 1 ? " V " : ""}
-                      {conjuro.material == 1
-                        ? " M(" + conjuro.material_desc + ")"
-                        : ""}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="textoDescCorta">{conjuro.desc_corta}</p>
-                  </div>
-                  <div className="filaInferiorBotones">
-                    <a href={"/conjuros/" + conjuro.id_conjuro}>
-                      <input type="button" value="Ver mas" />
-                    </a>
-                    <a href={"/conjuros/" + conjuro.id_conjuro}>
-                      <input type="button" value="Eliminar" />
-                    </a>
+                    </div>
+                    <div
+                      className="filaEscuela iconoOrder"
+                      onClick={(e) => {
+                        document.getElementById("orderNombre").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        document.getElementById("orderNivel").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        document.getElementById("orderTiempo").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        if (orderBy != "escuela_magia") {
+                          setOrderBy("escuela_magia");
+                          setOrder("ASC");
+                          document.getElementById("orderEscuela").src =
+                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                        } else {
+                          if (order == "ASC") {
+                            setOrder("DESC");
+                            document.getElementById("orderEscuela").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                          } else {
+                            setOrderBy("");
+                            setOrder("");
+                            document.getElementById("orderEscuela").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          }
+                        }
+                      }}
+                    >
+                      <p className="tiamat">Escuela</p>
+                      <img
+                        id="orderEscuela"
+                        src="/imagenes/iconos/flecha-vertical.svg"
+                      />
+                    </div>
+                    <div
+                      className="filaTiempo iconoOrder"
+                      onClick={(e) => {
+                        document.getElementById("orderNombre").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        document.getElementById("orderNivel").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        document.getElementById("orderEscuela").src =
+                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                        if (orderBy != "tiempo_lanz") {
+                          setOrderBy("tiempo_lanz");
+                          setOrder("ASC");
+                          document.getElementById("orderTiempo").src =
+                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                        } else {
+                          if (order == "ASC") {
+                            setOrder("DESC");
+                            document.getElementById("orderTiempo").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                          } else {
+                            setOrderBy("");
+                            setOrder("");
+                            document.getElementById("orderTiempo").src =
+                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          }
+                        }
+                      }}
+                    >
+                      <p className="tiamat">Tiempo de lanzamiento</p>
+                      <img
+                        id="orderTiempo"
+                        src="/imagenes/iconos/flecha-vertical.svg"
+                      />
+                    </div>
+                    <div className="filaRangoAlcance">
+                      <p className="tiamat">Rango/Area</p>
+                    </div>
+                    <div className="filaComponentes">
+                      <p className="tiamat">Componentes</p>
+                    </div>
+                    <div className="filaBoton"></div>
                   </div>
                 </div>
+                {dbConjuros.map((conjuro) => (
+                  <div className="filaTabla" key={"key" + conjuro.id_conjuro}>
+                    <div className="filaSuperior filaHover">
+                      <div className="filaImagen">
+                        <img
+                          src={"http://localhost:3000" + conjuro.imagen_conjuro}
+                          alt=""
+                          className="miniaturaConjuro"
+                        />
+                      </div>
+                      <div className="filaNombre">
+                        <p>{conjuro.nombre_conjuro}</p>
+                        {conjuro.concentracion == 1 ? (
+                          <img
+                            src="http://localhost:5173/imagenes/iconos/concetracion.png"
+                            alt=""
+                          />
+                        ) : (
+                          ""
+                        )}
+                        {conjuro.ritual == 1 ? (
+                          <img
+                            src="http://localhost:5173/imagenes/iconos/ritual.png"
+                            alt=""
+                          />
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                      <div className="filaNivel">
+                        <p>{conjuro.nombre_nivel}</p>
+                      </div>
+                      <div className="filaEscuela">
+                        <p>{conjuro.nombre_escuela}</p>
+                      </div>
+                      <div className="filaTiempo">
+                        <p>{conjuro.nombre_tiempo}</p>
+                      </div>
+                      <div className="filaRangoAlcance">
+                        <p>{conjuro.rango_area}</p>
+                      </div>
+                      <div className="filaComponentes">
+                        <p>
+                          {conjuro.somatico == 1 ? " S " : ""}
+                          {conjuro.verbal == 1 ? " V " : ""}
+                          {conjuro.material == 1 ? " M " : ""}
+                        </p>
+                      </div>
+                      <div
+                        className="filaBoton"
+                        onClick={() => {
+                          const estado = document.getElementById(
+                            "filaInferior" + conjuro.id_conjuro
+                          ).style.display;
+                          if (estado == "none") {
+                            document.getElementById(
+                              "filaInferior" + conjuro.id_conjuro
+                            ).style.display = "flex";
+                            document.getElementById(
+                              "botonTabla" + conjuro.id_conjuro
+                            ).src =
+                              "http://localhost:5173/imagenes/iconos/restar.svg";
+                          } else {
+                            document.getElementById(
+                              "filaInferior" + conjuro.id_conjuro
+                            ).style.display = "none";
+                            document.getElementById(
+                              "botonTabla" + conjuro.id_conjuro
+                            ).src =
+                              "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          }
+                        }}
+                      >
+                        <img
+                          id={"botonTabla" + conjuro.id_conjuro}
+                          src={
+                            "http://localhost:5173/imagenes/iconos/sumar.svg"
+                          }
+                          alt=""
+                          className="miniaturaConjuro"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      style={{ display: "none" }}
+                      className="filaInferior"
+                      id={"filaInferior" + conjuro.id_conjuro}
+                    >
+                      <div>
+                        <p className="tiamat">Nivel</p>
+                        <p>{conjuro.nombre_nivel}</p>
+                      </div>
+                      <div>
+                        <p className="tiamat">Escuela</p>
+                        <p>{conjuro.nombre_escuela}</p>
+                      </div>
+                      <div>
+                        <p className="tiamat">Tiempo de lanzamiento</p>
+                        <p>{conjuro.nombre_tiempo}</p>
+                      </div>
+                      <div>
+                        <p className="tiamat">Rango/Area</p>
+                        <p>{conjuro.rango_area}</p>
+                      </div>
+                      <div>
+                        <p className="tiamat">Componentes</p>
+                        <p>
+                          {conjuro.somatico == 1 ? " S " : ""}
+                          {conjuro.verbal == 1 ? " V " : ""}
+                          {conjuro.material == 1
+                            ? " M(" + conjuro.material_desc + ")"
+                            : ""}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="textoDescCorta">{conjuro.desc_corta}</p>
+                      </div>
+                      <div className="filaInferiorBotones">
+                        <a href={"/conjuros/" + conjuro.id_conjuro}>
+                          <input type="button" value="Ver mas" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
+            </>
+          )}
+        </div>
 
         <div className="divPaginacion">
-          {paginaActual - 1 > 1 && (
-            <img
-              src="/imagenes/iconos/doble-flecha-izquierda.svg"
-              alt=""
-              className="imgIconoPaginacion"
-              onClick={(event) => {
-                setPaginaActual(1);
-              }}
-            />
-          )}
-          {paginaActual - 1 >= 1 && (
-            <img
-              src="/imagenes/iconos/flecha-izquierda.svg"
-              alt=""
-              className="imgIconoPaginacion"
-              onClick={(event) => {
-                setPaginaActual(paginaActual - 1);
-              }}
-            />
-          )}
-          <p className="textoPaginacion tiamat">
-            {paginaActual + "/" + maxPaginacion}
-          </p>
-          {paginaActual + 1 <= maxPaginacion && (
-            <img
-              src="/imagenes/iconos/flecha-derecha.svg"
-              alt=""
-              className="imgIconoPaginacion"
-              onClick={(event) => {
-                setPaginaActual(paginaActual + 1);
-              }}
-            />
-          )}
-          {paginaActual + 1 < maxPaginacion && (
-            <img
-              src="/imagenes/iconos/doble-flecha-derecha.svg"
-              alt=""
-              className="imgIconoPaginacion"
-              onClick={(event) => {
-                setPaginaActual(maxPaginacion);
-              }}
-            />
-          )}
+          <div>
+            {paginaActual - 1 > 1 && (
+              <img
+                src="/imagenes/iconos/doble-flecha-izquierda.svg"
+                alt=""
+                className="imgIconoPaginacion"
+                onClick={(event) => {
+                  setPaginaActual(1);
+                }}
+              />
+            )}
+          </div>
+          <div>
+            {paginaActual - 1 >= 1 && (
+              <img
+                src="/imagenes/iconos/flecha-izquierda.svg"
+                alt=""
+                className="imgIconoPaginacion"
+                onClick={(event) => {
+                  setPaginaActual(paginaActual - 1);
+                }}
+              />
+            )}
+          </div>
+          <div>
+            <p className="textoPaginacion tiamat">
+              {paginaActual + "/" + maxPaginacion}
+            </p>
+          </div>
+          <div>
+            {paginaActual + 1 <= maxPaginacion && (
+              <img
+                src="/imagenes/iconos/flecha-derecha.svg"
+                alt=""
+                className="imgIconoPaginacion"
+                onClick={(event) => {
+                  setPaginaActual(paginaActual + 1);
+                }}
+              />
+            )}
+          </div>
+          <div>
+            {paginaActual + 1 < maxPaginacion && (
+              <img
+                src="/imagenes/iconos/doble-flecha-derecha.svg"
+                alt=""
+                className="imgIconoPaginacion"
+                onClick={(event) => {
+                  setPaginaActual(maxPaginacion);
+                }}
+              />
+            )}
+          </div>
         </div>
       </div>
       <p></p>

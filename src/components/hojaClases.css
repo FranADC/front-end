@@ -1,0 +1,222 @@
+.divGeneral {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.divGeneral > h1 {
+  text-align: center;
+}
+
+.divGeneral > h1,
+.divTablaContenedor > h1 {
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-bottom-width: 4px;
+  border-top-style: solid;
+  padding: 5px 20px;
+}
+
+.divPrincipal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  width: 90%;
+}
+
+.divTablaContenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divTablaPrin {
+  width: 99%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-left-style: solid;
+  border-right-style: solid;
+}
+
+.filaTablaPrin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-top-style: solid;
+}
+
+.finalTablaPrin {
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-bottom-style: solid;
+}
+.primeraColumnaPrin {
+  width: 33%;
+  padding-left: 10px;
+}
+.segundaColumnaPrin {
+  width: 66%;
+  height: 100%;
+  padding-left: 10px;
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-left-style: solid;
+}
+
+.divDescripcion {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-top-style: solid;
+}
+
+.tablaOverflow {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-color: #fbcfa0 #000;
+  display: flex;
+  justify-content: center;
+}
+
+.divInfoCabecera {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-top-style: solid;
+
+  margin-bottom: 20px;
+}
+.divInfoCabecera > h1 {
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.divInfoFila {
+  padding: 20px;
+
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-top-style: solid;
+
+  margin-bottom: 20px;
+}
+
+.divInfo h1 {
+  text-align: center;
+}
+
+.divDescripcion {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.divDescripcion h1 {
+  margin-top: 0%;
+  text-align: center;
+}
+.divPrincipal,
+.divInfo {
+  width: 100%;
+}
+
+.tablaProgresion {
+  width: 900px;
+}
+
+.filaTablaProg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-top-style: solid;
+}
+
+.filaTablaProg div {
+}
+
+.filaTablaPrin:hover,
+.filaTablaProg:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.divSubSuperior {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divSubSuperior > h1 {
+  margin: 0px;
+}
+
+.divSubSuperior > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imgBotonSubclase {
+  width: 50px;
+  height: 50px;
+}
+.divSubInferior {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 940px) {
+  .divPrincipal {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .tablaOverflow {
+    display: flex;
+    justify-content: left;
+  }
+  .divSubSuperior > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .divImagen img {
+    width: 100%;
+  }
+
+  .primeraColumnaPrin {
+    width: 50%;
+  }
+  .segundaColumnaPrin {
+    width: 50%;
+  }
+}

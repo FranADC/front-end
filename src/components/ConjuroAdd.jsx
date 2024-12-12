@@ -8,9 +8,9 @@ export default function () {
   const [addTiempoLanzamiento, setAddTiempoLanzamiento] = useState("");
   const [addAlcanceLanzamiento, setAddAlcanceLanzamiento] = useState("");
   const [addRangoArea, setAddRangoArea] = useState("");
-  const [addSomatico, setAddSomatico] = useState("");
-  const [addVerbal, setAddVerbal] = useState("");
-  const [addMaterial, setAddMaterial] = useState("");
+  const [addSomatico, setAddSomatico] = useState("false");
+  const [addVerbal, setAddVerbal] = useState("false");
+  const [addMaterial, setAddMaterial] = useState("false");
   const [addMaterialDesc, setAddMaterialDesc] = useState("");
   const [addDuracion, setAddDuracion] = useState("");
   const [addConcentracion, setAddConcentracion] = useState("");
@@ -384,6 +384,7 @@ export default function () {
               </label>
             </div>
           </div>
+          <p className="tituloClase">Clases</p>
           <div className="filaForm">
             <div className="divInputCheckClases">
               <label htmlFor="conjuroBardo">Bardo</label>
@@ -548,7 +549,8 @@ export default function () {
 
           <div className="filaForm">
             <div>
-              <input type="file" src="" alt="" id="imgfile" />
+              <label htmlFor="imgfile">Imagen conjuro</label>
+              <input type="file" src="" alt="" id="imgfile" name="imgfile" />
               <label htmlFor="imgfile" className="labelError">
                 {typeof erroresFiltros.errImagen !== "undefined"
                   ? erroresFiltros.errImagen
@@ -563,6 +565,9 @@ export default function () {
               value="Añadir conjuro"
               onClick={async (event) => {
                 event.preventDefault();
+
+                console.log("addDuracion");
+                console.log(addDuracion);
 
                 let data = new Object();
 
@@ -594,12 +599,14 @@ export default function () {
                       credentials: "include",
                     }
                   );
-                  const result = await peticion.json();
+
                   if (!peticion.ok) {
+                    const result = await peticion.json();
                     setErroresFiltros(result);
                     throw new Error("Network response was not ok");
                   } else {
-                    setErroresFiltros("");
+                    alert("Conjuro añadido de forma exitosa");
+                    window.location.href = "/conjuros/añadir";
                   }
                 } catch (err) {
                   console.log(err);

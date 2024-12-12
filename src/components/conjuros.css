@@ -1,3 +1,9 @@
+body {
+  background: url("/imagenes/fondo/fondoGeneral.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-position: static;
+}
 .divTabla,
 .divBody {
   display: flex;
@@ -8,8 +14,8 @@
 }
 
 .imgIconoPaginacion {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .iconoOrder {
@@ -24,23 +30,21 @@
 }
 
 .textoPaginacion {
-  font-size: 40px;
+  font-size: 30px;
   color: #fbcfa0;
 }
+
 .divPaginacion {
-  width: 250px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  text-align: center;
 }
 
-body {
-  background: url("/imagenes/fondo/fondoConjuros.jpg") no-repeat center center
-    fixed;
-  background-size: cover;
-  height: 100vh;
-  background-position: static;
+.divPaginacion div {
+  width: 50px;
 }
 
 input[type="button"],
@@ -60,7 +64,12 @@ input[type="reset"] {
   max-width: 1200px;
   width: 100%;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.formsConjurosFiltro h2 {
+  text-align: center;
+  margin-top: 0;
 }
 
 .filaFormPricipal {
@@ -82,7 +91,6 @@ input[type="reset"] {
 }
 
 .filaFormPricipal input {
-  padding: 0px;
   margin: 5px 0px;
   width: 196px;
 }
@@ -95,16 +103,6 @@ input[type="reset"] {
   flex-wrap: wrap;
 }
 
-@media only screen and (max-width: 540) {
-  .filaFormPricipal select {
-    width: 100%;
-  }
-
-  .filaFormPricipal > div {
-    width: max-content;
-  }
-}
-
 .textError {
   font-size: 14px;
   color: red;
@@ -112,6 +110,7 @@ input[type="reset"] {
 
 .divTabla,
 .formsConjurosFiltro {
+  padding: 10px;
   width: 90%;
 }
 
@@ -128,7 +127,7 @@ input[type="reset"] {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 
   border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
   border-bottom-width: 4px;
@@ -151,8 +150,9 @@ input[type="reset"] {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   padding-bottom: 15px;
+  transition: 300ms;
 }
 
 .filaInferior > div {
@@ -222,6 +222,10 @@ input[type="reset"] {
   width: 25px;
 }
 
+.filaBoton img {
+  width: 100%;
+}
+
 .miniaturaBoton {
   width: 40px;
   height: 40px;
@@ -229,7 +233,9 @@ input[type="reset"] {
 
 @media only screen and (max-width: 768px) {
   .divTabla {
-    width: 100%;
+    margin-top: 20px;
+    padding: 0px;
+    width: 95%;
   }
   .filaRangoAlcance {
     display: none;
@@ -252,7 +258,17 @@ input[type="reset"] {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 540) {
+  .filaFormPricipal select {
+    width: 100%;
+  }
+
+  .filaFormPricipal > div {
+    width: max-content;
+  }
+}
+
+@media only screen and (max-width: 490px) {
   .filaEscuela {
     display: none;
   }

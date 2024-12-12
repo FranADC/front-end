@@ -1,0 +1,88 @@
+body {
+  background: url("/imagenes/fondo/fondoGeneral.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-position: static;
+}
+
+.divBody {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.divTarjeta {
+  width: 420px;
+  height: 620px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.tarjetaPrincipal {
+  height: 620px;
+}
+
+.tarjetaSecundario {
+  position: absolute;
+  top: 551px;
+  width: 420px;
+  height: 620px;
+  transition: 300ms;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-top-style: solid;
+}
+
+.tarjetaSecundario h2 {
+  margin: 18px 0px;
+}
+
+.tarjetaDescripcion {
+  margin: 0px 10px;
+}
+
+.divTarjeta:hover .tarjetaSecundario {
+  top: 0px;
+  transition: 300ms;
+}
+
+.tarjetaSecundario a {
+  position: absolute;
+  bottom: 0px;
+}
+
+@media only screen and (max-width: 470px) {
+  .divTarjeta,
+  .tarjetaPrincipal {
+    width: 280px;
+    height: 412px;
+  }
+
+  .tarjetaSecundario {
+    width: 100%;
+    height: 412px;
+    top: 350px;
+  }
+
+  .tarjetaPrincipal > img {
+    width: 280px;
+    height: 412px;
+  }
+
+  .tarjetaSecundario > img {
+    width: 60px;
+  }
+}

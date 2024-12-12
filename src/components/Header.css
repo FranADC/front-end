@@ -1,8 +1,11 @@
 header {
-  position: sticky;
   height: 180px;
   background-image: url("/imagenes/fondo/fondoCabecera.png");
   color: #fbcfa0;
+}
+
+header a:hover {
+  color: white !important;
 }
 
 .cabeceraPrincipal {
@@ -55,9 +58,6 @@ header {
   height: 20px;
 }
 
-.botonCerrarSession {
-}
-
 .cabeceraInferior {
   display: flex;
   flex-direction: row;
@@ -65,10 +65,12 @@ header {
 }
 
 .botonNavMovil {
+  width: 40px;
+  height: 40px;
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   .cabeceraSuperior {
     justify-content: center;
   }
@@ -100,9 +102,9 @@ ul {
   list-style: none;
 }
 
-.menuNavPantalla li a {
+.menuNavPantalla a {
   text-decoration: none;
-  display: block;
+  color: #fbcfa0;
 }
 
 .menuNavPantalla > li {
@@ -110,16 +112,6 @@ ul {
   padding: 0px 10px;
 }
 
-.menuNavPantalla li ul {
-  display: none;
-  position: absolute;
-  min-width: 140px;
-}
-
-.menuNavPantalla li:hover > ul {
-  display: block;
-}
-/**/
 .divNavAbsoluto {
   color: #fbcfa0;
   position: absolute;
@@ -127,7 +119,7 @@ ul {
   display: none;
   min-height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 
   z-index: 10000;
 
@@ -136,5 +128,30 @@ ul {
   justify-content: center;
 }
 
-.menuNavAbsoluto {
+.divNavAbsoluto h1 a {
+  text-decoration: none;
+  color: #fbcfa0;
+}
+
+.divNavAbsoluto h1 a:hover {
+  color: #fff;
+}
+
+.divNavAbsoluto button a {
+  text-decoration: none;
+  color: black;
+}
+
+.divNavAbsoluto button {
+  margin: 0px 10px;
+}
+
+.divNavAbsoluto img {
+  width: 40px;
+  height: 40px;
+}
+
+.menuNavAbsoluto h1 {
+  text-decoration: none;
+  color: #fbcfa0;
 }

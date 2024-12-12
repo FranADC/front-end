@@ -78,6 +78,25 @@ export default function ({ usuario }) {
     fetchClase();
   }, []);
 
+  async function deleteConjuroID() {
+    console.log("AAAAAAA");
+
+    try {
+      console.log("bbbbbbbbb");
+      const peticion = await fetch("http://localhost:3000/borrar/" + ID, {
+        credentials: "include",
+      });
+      if (!peticion.ok) {
+        throw new Error("Network response was not ok");
+      } else {
+        alert("Conjuro borrado con exito");
+        window.location.href = "/conjuros";
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       {console.log(dbConjuro)}
@@ -90,6 +109,22 @@ export default function ({ usuario }) {
           </div>
           <div className="mostrarTitulo">
             <h1>{dbConjuro.nombre_conjuro}</h1>
+            {dbConjuro.concentracion == 1 ? (
+              <img
+                src="http://localhost:5173/imagenes/iconos/concetracion.png"
+                alt=""
+              />
+            ) : (
+              ""
+            )}
+            {dbConjuro.ritual == 1 ? (
+              <img
+                src="http://localhost:5173/imagenes/iconos/ritual.png"
+                alt=""
+              />
+            ) : (
+              ""
+            )}
           </div>
           <div className="interiorTarjeta">
             <div className="mostrarDatos">
@@ -113,7 +148,7 @@ export default function ({ usuario }) {
               </div>
               <div className="filaSecundaria">
                 <div className="divInformacion">
-                  <h2 className="tiamat">Nivel de Conjuro</h2>
+                  <h2 className="tiamat">Rango/area </h2>
                   <p>{dbConjuro.rango_area}</p>
                 </div>
                 <div className="divInformacion">
@@ -138,15 +173,26 @@ export default function ({ usuario }) {
                 </p>
               </div>
               <div
-                className="filaDescrpcion"
+                className="filaDescripcion"
                 dangerouslySetInnerHTML={{ __html: dbConjuro.desc_larga }}
               />
               {usuario.rol == 1 ? (
-                <div className="filaEditar">
-                  <a href={"/conjuros/modificar/" + dbConjuro.id_conjuro}>
-                    <input type="button" value="Editar" />
-                  </a>
-                </div>
+                <>
+                  <div className="botonesEditar">
+                    <div className="filaEditar">
+                      <a href={"/conjuros/modificar/" + dbConjuro.id_conjuro}>
+                        <input type="button" value="Editar" />
+                      </a>
+                    </div>
+                    <div className="filaEditar">
+                      <input
+                        type="button"
+                        value="Eliminar"
+                        onClick={deleteConjuroID}
+                      />
+                    </div>
+                  </div>
+                </>
               ) : (
                 ""
               )}

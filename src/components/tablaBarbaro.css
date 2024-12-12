@@ -1,0 +1,9 @@
+.columnaNivelProg,
+.columnaProficienciaProg,
+.columnaInfo1Prog,
+.columnaInfo2Prog {
+  width: 100px;
+}
+.columnaCaracteristicasProg {
+  width: 500px;
+}

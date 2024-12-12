@@ -10,15 +10,15 @@ i *,
 }
 
 @font-face {
-  font-family: tiamatRegular;
-  src: url("/fuentes/tiamatregular.woff");
+  font-family: tiamat;
+  src: url("/fuentes/tiamat.woff");
 }
 
 h1,
 h2,
 h3,
 .tiamat {
-  font-family: tiamatRegular;
+  font-family: tiamat;
 }
 
 body {
@@ -40,4 +40,27 @@ button {
   background-color: #fbcea0;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+input,
+select {
+  padding: 5px 2px !important;
+}
+
+body {
+  background: url("/imagenes/fondo/fondoGeneral.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-position: static;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
 }

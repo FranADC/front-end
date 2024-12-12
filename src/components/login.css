@@ -1,0 +1,54 @@
+.divBody {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.divLog {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  width: 490px;
+  padding: 0px 10px;
+}
+
+.divLog > h2 {
+  align-self: center;
+}
+
+.divLog div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.divLog input {
+  width: 240px;
+}
+
+.divLog input[type="button"] {
+  align-self: center;
+  width: 100px;
+  font-family: tiamatRegular;
+  background: linear-gradient(135deg, #fff, #fbcea0 66%, #fbcfa0);
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.textError {
+  height: 16px;
+  font-size: 14px;
+  color: red;
+}
+
+@media only screen and (max-width: 540px) {
+  .divLog {
+    width: 90%;
+  }
+  .textError {
+    height: 32px;
+  }
+}

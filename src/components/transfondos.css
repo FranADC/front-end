@@ -1,0 +1,29 @@
+.divTarjetaTransfondo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 345px;
+  height: 450px;
+  margin: 20px;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
+  border-width: 4px;
+  border-style: solid;
+}
+
+.divTarjetaTransfondo:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width: 424px) {
+  .divTarjetaTransfondo {
+    width: 80%;
+    margin: 20px 0px;
+    padding: 20px;
+  }
+}

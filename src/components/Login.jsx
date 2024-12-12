@@ -1,8 +1,11 @@
+import "./login.css";
 import React, { useState } from "react";
 
 const Login = () => {
   const [identicador, setIdenticador] = useState("");
   const [password, setPassword] = useState("");
+
+  const [erroresFiltros, setErroresFiltros] = useState("");
 
   const handleLogin = async () => {
     try {
@@ -17,12 +20,14 @@ const Login = () => {
         }),
         credentials: "include",
       });
-
+      const data = await response.text();
       if (response.ok) {
-        const data = await response.text();
+        setErroresFiltros("");
+
         window.location.href = "/";
       } else {
-        alert("Error al iniciar sesión");
+        setErroresFiltros(data);
+        //alert("Error al iniciar sesión");
       }
     } catch (error) {
       console.error(error);
@@ -30,21 +35,39 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Usuario o correo"
-        value={identicador}
-        onChange={(e) => setIdenticador(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className="divBody">
+      {console.log(typeof erroresFiltros)}
+      <div className="divLog">
+        <h2>Iniciar sesión</h2>
+        <div>
+          <label htmlFor="nombreRegistro" className="tiamat">
+            Usuario o correo
+          </label>
+          <input
+            type="text"
+            name="usuarioCorreo"
+            value={identicador}
+            onChange={(e) => setIdenticador(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="contraseña" className="tiamat">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            name="contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label htmlFor="contraseña" className="textError">
+            {erroresFiltros !== "" ? "Datos incorrectos" : ""}
+          </label>
+        </div>
+        <div>
+          <input type="button" value="Login" onClick={handleLogin} />
+        </div>
+      </div>
     </div>
   );
 };

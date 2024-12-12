@@ -1,15 +1,13 @@
+body {
+  background: url("/imagenes/fondo/fondoGeneral.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-position: static;
+}
 .divbody {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-body {
-  background: url("/imagenes/fondo/fondoConjuros.jpg") no-repeat center center
-    fixed;
-  background-size: cover;
-  height: 100vh;
-  background-position: static;
 }
 
 .formConjurosUpdate {
@@ -18,7 +16,7 @@ body {
   padding: 20px;
   flex-wrap: wrap;
 
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 
   border-image: linear-gradient(135deg, #ece2d9, #fbcea0 66%, #fbcfa0) 1;
   border-width: 4px;
@@ -33,6 +31,11 @@ body {
   flex-wrap: wrap;
   width: 100%;
   overflow: hidden;
+}
+
+.filaForm img {
+  width: 300px;
+  height: 300px;
 }
 
 .filaForm > div {
@@ -52,14 +55,18 @@ select {
   text-align: center;
 }
 
+.tituloClase {
+  text-align: center;
+}
+
 .divInputText input {
-  padding: 0px;
   width: 196px;
 }
 
 textarea {
   width: 100%;
 }
+
 .labelError {
   height: 18px;
   text-align: center;
@@ -118,6 +125,10 @@ input[type="reset"] {
   .divSelect select {
     width: 100%;
   }
+
+  .formConjurosUpdate {
+    padding: 0px;
+  }
 }
 
 @media only screen and (max-width: 431px) {
@@ -129,5 +140,12 @@ input[type="reset"] {
 @media only screen and (max-width: 600px) {
   .divInputImg img {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .filaForm img {
+    width: 200px;
+    height: 200px;
   }
 }

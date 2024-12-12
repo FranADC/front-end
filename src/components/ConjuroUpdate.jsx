@@ -250,6 +250,11 @@ export default function () {
                 value={updateNombreConjuro}
                 onChange={(e) => setUpdateNombreConjuro(e.target.value)}
               />
+              <label htmlFor="nombreConjuro" className="labelError">
+                {typeof erroresFiltros.errNombreConjuro !== "undefined"
+                  ? erroresFiltros.errNombreConjuro
+                  : ""}
+              </label>
             </div>
 
             <div className="divSelect">
@@ -268,7 +273,7 @@ export default function () {
                   </option>
                 ))}
               </select>
-              <label htmlFor="nivelConjuro">
+              <label htmlFor="nivelConjuro" className="labelError">
                 {typeof erroresFiltros.errNivelConjuro !== "undefined"
                   ? erroresFiltros.errNivelConjuro
                   : ""}
@@ -289,7 +294,7 @@ export default function () {
                   </option>
                 ))}
               </select>
-              <label htmlFor="escuelaMagia">
+              <label htmlFor="escuelaMagia" className="labelError">
                 {typeof erroresFiltros.errEscuelaMagia !== "undefined"
                   ? erroresFiltros.errEscuelaMagia
                   : ""}
@@ -310,7 +315,7 @@ export default function () {
                   </option>
                 ))}
               </select>
-              <label htmlFor="tiempoLanzamiento">
+              <label htmlFor="tiempoLanzamiento" className="labelError">
                 {typeof erroresFiltros.errTiempoLanzamiento !== "undefined"
                   ? erroresFiltros.errTiempoLanzamiento
                   : ""}
@@ -318,7 +323,7 @@ export default function () {
             </div>
           </div>
           <div className="filaForm">
-            <div>
+            <div className="divSelect">
               <label htmlFor="alcanceLanzamiento">Alcance lanzamiento</label>
               <select
                 name="alcanceLanzamiento"
@@ -335,14 +340,14 @@ export default function () {
                   </option>
                 ))}
               </select>
-              <label htmlFor="alcanceLanzamiento">
+              <label htmlFor="alcanceLanzamiento" className="labelError">
                 {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
                   ? erroresFiltros.errAlcanceLanzamiento
                   : ""}
               </label>
             </div>
 
-            <div>
+            <div className="divInputText">
               <label htmlFor="rangoArea">Rango / Area</label>
               <input
                 type="text"
@@ -351,14 +356,14 @@ export default function () {
                 value={updateRangoArea}
                 onChange={(e) => setUpdateRangoArea(e.target.value)}
               />
-              <label htmlFor="rangoArea">
-                {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-                  ? erroresFiltros.errAlcanceLanzamiento
+              <label htmlFor="rangoArea" className="labelError">
+                {typeof erroresFiltros.errRangoArea !== "undefined"
+                  ? erroresFiltros.errRangoArea
                   : ""}
               </label>
             </div>
 
-            <div>
+            <div className="divInputText">
               <label htmlFor="duracion">Duracion</label>
               <input
                 type="text"
@@ -367,15 +372,15 @@ export default function () {
                 value={updateDuracion}
                 onChange={(e) => setUpdateDuracion(e.target.value)}
               />
-              <label htmlFor="duracion">
-                {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-                  ? erroresFiltros.errAlcanceLanzamiento
+              <label htmlFor="duracion" className="labelError">
+                {typeof erroresFiltros.errDuracion !== "undefined"
+                  ? erroresFiltros.errDuracion
                   : ""}
               </label>
             </div>
           </div>
           <div className="filaForm">
-            <div>
+            <div className="divInputCheck">
               <label htmlFor="somatico">Somático</label>
               <input
                 type="checkbox"
@@ -384,13 +389,13 @@ export default function () {
                 checked={updateSomatico == 1}
                 onChange={(e) => setUpdateSomatico(e.target.checked)}
               ></input>
-              <label htmlFor="somatico">
+              <label htmlFor="somatico" className="labelError">
                 {typeof erroresFiltros.errSomatico !== "undefined"
                   ? erroresFiltros.errSomatico
                   : ""}
               </label>
             </div>
-            <div>
+            <div className="divInputCheck">
               <label htmlFor="verbal">Verbal</label>
               <input
                 type="checkbox"
@@ -399,13 +404,13 @@ export default function () {
                 checked={updateVerbal == 1}
                 onChange={(e) => setUpdateVerbal(e.target.checked)}
               ></input>
-              <label htmlFor="verbal">
+              <label htmlFor="verbal" className="labelError">
                 {typeof erroresFiltros.errVerbal !== "undefined"
                   ? erroresFiltros.errVerbal
                   : ""}
               </label>
             </div>
-            <div>
+            <div className="divInputCheck">
               <label htmlFor="material">Material</label>
               <input
                 type="checkbox"
@@ -414,13 +419,13 @@ export default function () {
                 checked={updateMaterial == 1}
                 onChange={(e) => setUpdateMaterial(e.target.checked)}
               ></input>
-              <label htmlFor="material">
+              <label htmlFor="material" className="labelError">
                 {typeof erroresFiltros.errMaterial !== "undefined"
                   ? erroresFiltros.errMaterial
                   : ""}
               </label>
             </div>
-            <div id="divmaterialDesc">
+            <div id="divmaterialDesc" className="divInputText">
               <label htmlFor="materialDesc">Descricion material</label>
               <input
                 type="text"
@@ -429,9 +434,9 @@ export default function () {
                 value={updateMaterialDesc == "null" ? "" : updateMaterialDesc}
                 onChange={(e) => setUpdateMaterialDesc(e.target.value)}
               />
-              <label htmlFor="materialDesc">
-                {typeof erroresFiltros.errNombreConjuro !== "undefined"
-                  ? erroresFiltros.errNombreConjuro
+              <label htmlFor="materialDesc" className="labelError">
+                {typeof erroresFiltros.errMaterialDesc !== "undefined"
+                  ? erroresFiltros.errMaterialDesc
                   : ""}
               </label>
             </div>
@@ -446,9 +451,9 @@ export default function () {
                 checked={updateConcentracion == 1}
                 onChange={(e) => setUpdateConcentracion(e.target.checked)}
               ></input>
-              <label htmlFor="concentracion">
-                {typeof erroresFiltros.errSomatico !== "undefined"
-                  ? erroresFiltros.errSomatico
+              <label htmlFor="concentracion" className="labelError">
+                {typeof erroresFiltros.errConcentracion !== "undefined"
+                  ? erroresFiltros.errConcentracion
                   : ""}
               </label>
             </div>
@@ -461,13 +466,14 @@ export default function () {
                 checked={updateRitual == 1}
                 onChange={(e) => setUpdateRitual(e.target.checked)}
               ></input>
-              <label htmlFor="ritual">
-                {typeof erroresFiltros.errSomatico !== "undefined"
-                  ? erroresFiltros.errSomatico
+              <label htmlFor="ritual" className="labelError">
+                {typeof erroresFiltros.errRitual !== "undefined"
+                  ? erroresFiltros.errRitual
                   : ""}
               </label>
             </div>
           </div>
+          <p className="tituloClase">Clases</p>
           <div className="filaForm">
             <div className="divInputCheckClases">
               <label htmlFor="conjuroBardo">Bardo</label>
@@ -478,7 +484,7 @@ export default function () {
                 checked={updateBardo == 1}
                 onChange={(e) => setUpdateBardo(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroBardo">
+              <label htmlFor="conjuroBardo" className="labelError">
                 {typeof erroresFiltros.errBardo !== "undefined"
                   ? erroresFiltros.errBardo
                   : ""}
@@ -493,7 +499,7 @@ export default function () {
                 checked={updateBrujo == 1}
                 onChange={(e) => setUpdateBrujo(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroBrujo">
+              <label htmlFor="conjuroBrujo" className="labelError">
                 {typeof erroresFiltros.errBrujo !== "undefined"
                   ? erroresFiltros.errBrujo
                   : ""}
@@ -508,7 +514,7 @@ export default function () {
                 checked={updateClerigo == 1}
                 onChange={(e) => setUpdateClerigo(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroClerigo">
+              <label htmlFor="conjuroClerigo" className="labelError">
                 {typeof erroresFiltros.errClerigo !== "undefined"
                   ? erroresFiltros.errClerigo
                   : ""}
@@ -523,7 +529,7 @@ export default function () {
                 checked={updateDruida == 1}
                 onChange={(e) => setUpdateDruida(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroDruida">
+              <label htmlFor="conjuroDruida" className="labelError">
                 {typeof erroresFiltros.errDruida !== "undefined"
                   ? erroresFiltros.errDruida
                   : ""}
@@ -538,7 +544,7 @@ export default function () {
                 checked={updateExplorador == 1}
                 onChange={(e) => setUpdateExplorador(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroExplorador">
+              <label htmlFor="conjuroExplorador" className="labelError">
                 {typeof erroresFiltros.errExplorador !== "undefined"
                   ? erroresFiltros.errExplorador
                   : ""}
@@ -553,7 +559,7 @@ export default function () {
                 checked={updateHechicero == 1}
                 onChange={(e) => setUpdateHechicero(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroHechicero">
+              <label htmlFor="conjuroHechicero" className="labelError">
                 {typeof erroresFiltros.errHechicero !== "undefined"
                   ? erroresFiltros.errHechicero
                   : ""}
@@ -568,7 +574,7 @@ export default function () {
                 checked={updateMago == 1}
                 onChange={(e) => setUpdateMago(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroMago">
+              <label htmlFor="conjuroMago" className="labelError">
                 {typeof erroresFiltros.errMago !== "undefined"
                   ? erroresFiltros.errMago
                   : ""}
@@ -583,7 +589,7 @@ export default function () {
                 checked={updatePaladin == 1}
                 onChange={(e) => setUpdatePaladin(e.target.checked)}
               ></input>
-              <label htmlFor="conjuroPaladin">
+              <label htmlFor="conjuroPaladin" className="labelError">
                 {typeof erroresFiltros.errPaladin !== "undefined"
                   ? erroresFiltros.errPaladin
                   : ""}
@@ -606,9 +612,9 @@ export default function () {
                 value={updateDescCorta}
                 onChange={(e) => setUpdateDescCorta(e.target.value)}
               ></textarea>
-              <label htmlFor="descCorta">
-                {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-                  ? erroresFiltros.errAlcanceLanzamiento
+              <label htmlFor="descCorta" className="labelError">
+                {typeof erroresFiltros.errDescCorta !== "undefined"
+                  ? erroresFiltros.errDescCorta
                   : ""}
               </label>
             </div>
@@ -625,9 +631,9 @@ export default function () {
                 value={updateDescLarga}
                 onChange={(e) => setUpdateDescLarga(e.target.value)}
               ></textarea>
-              <label htmlFor="descLarga">
-                {typeof erroresFiltros.errAlcanceLanzamiento !== "undefined"
-                  ? erroresFiltros.errAlcanceLanzamiento
+              <label htmlFor="descLarga" className="labelError">
+                {typeof erroresFiltros.errDescLarga !== "undefined"
+                  ? erroresFiltros.errDescLarga
                   : ""}
               </label>
             </div>
@@ -691,13 +697,14 @@ export default function () {
                       credentials: "include",
                     }
                   );
-                  const result = await peticion.json();
+                  console.log(peticion);
                   if (!peticion.ok) {
-                    console.log(result);
-
+                    const result = await peticion.json();
                     setErroresFiltros(result);
                     throw new Error("Network response was not ok");
                   } else {
+                    alert("Conjuro actualizado de forma exitosa");
+                    window.location.href = "/conjuros/" + ID;
                     setErroresFiltros("");
                   }
                 } catch (err) {
