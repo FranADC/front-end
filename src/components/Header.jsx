@@ -26,7 +26,7 @@ export default function ({ usuario }) {
             <a href="/">
               <img
                 className="cabeceraSupLogo"
-                src="http://localhost:5173/imagenes/iconos/logo.png"
+                src="/imagenes/iconos/logo.png"
                 alt=""
               />
             </a>
@@ -72,18 +72,18 @@ export default function ({ usuario }) {
                               "divCerrarSession"
                             ).style.display = "flex";
                             document.getElementById("imgCerrarSession").src =
-                              "http://localhost:5173/imagenes/iconos/restar.svg";
+                              "/imagenes/iconos/restar.svg";
                           } else {
                             document.getElementById(
                               "divCerrarSession"
                             ).style.display = "none";
                             document.getElementById("imgCerrarSession").src =
-                              "http://localhost:5173/imagenes/iconos/sumar.svg";
+                              "/imagenes/iconos/sumar.svg";
                           }
                         }}
                         className="iconoSesion"
                         id="imgCerrarSession"
-                        src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                        src="/imagenes/iconos/sumar.svg"
                         alt=""
                       />
                     </div>
@@ -103,7 +103,7 @@ export default function ({ usuario }) {
 
           <div className="cabeceraInferior">
             <img
-              src="http://localhost:5173/imagenes/iconos/hamburguesa.svg"
+              src="/imagenes/iconos/hamburguesa.svg"
               className="botonNavMovil"
               onClick={() => {
                 document.getElementById("divNavAbsoluto").style.display =
@@ -118,7 +118,7 @@ export default function ({ usuario }) {
       <div id="divNavAbsoluto" className="divNavAbsoluto">
         <div className="menuNavAbsoluto"></div>
         <img
-          src="http://localhost:5173/imagenes/iconos/salir.svg"
+          src="/imagenes/iconos/salir.svg"
           onClick={() => {
             document.getElementById("divNavAbsoluto").style.display = "none";
             document.body.style.overflow = "visible";

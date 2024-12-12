@@ -79,10 +79,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerClerigo.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerClerigo.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -691,10 +688,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Clérigo de la vida</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoClerigoSub1.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoClerigoSub1.png" alt="" />
                     <h2>
                       Encargado del sagrado edicto de preservar el cuerpo, la
                       mente y el alma, tu dios te concede una plétora de magias
@@ -703,7 +697,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase1"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -714,13 +708,13 @@ export default function () {
                             "divSubInferior1"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior1"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -765,10 +759,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Clérigo de la vida</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoClerigoSub2.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoClerigoSub2.png" alt="" />
                     <h2>
                       Los dioses de las llamas primordiales te bañan en una luz
                       resplandeciente, proporcionándote magias para disipar la
@@ -777,7 +768,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase2"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -788,13 +779,13 @@ export default function () {
                             "divSubInferior2"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase2").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior2"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase2").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -852,10 +843,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Clérigo de la guerra</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoClerigoSub3.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoClerigoSub3.png" alt="" />
                     <h2>
                       Fortalecido por el santo fervor, blandes un arsenal de
                       salvajismo sacramental para usarlo contra los que
@@ -864,7 +852,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase3"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -875,13 +863,13 @@ export default function () {
                             "divSubInferior3"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase3").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior3"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase3").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />

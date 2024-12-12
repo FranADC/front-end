@@ -16,40 +16,28 @@ export default function () {
         <div className="divElementos">
           <div>
             <h2>Clases</h2>
-            <img
-              src="http://localhost:5173/imagenes/general/logoGuerrero.png"
-              alt=""
-            />
+            <img src="/imagenes/general/logoGuerrero.png" alt="" />
             <a href="/clases">
               <input type="button" value="Ver más" />
             </a>
           </div>
           <div>
             <h2>Razas</h2>
-            <img
-              src="http://localhost:5173/imagenes/general/personajeTiefling.png"
-              alt=""
-            />
+            <img src="/imagenes/general/personajeTiefling.png" alt="" />
             <a href="/razas">
               <input type="button" value="Ver más" />
             </a>
           </div>
           <div>
             <h2>Transfondos</h2>
-            <img
-              src="http://localhost:5173/imagenes/general/transfondoCharlatan.png"
-              alt=""
-            />
+            <img src="/imagenes/general/transfondoCharlatan.png" alt="" />
             <a href="/transfondos">
               <input type="button" value="Ver más" />
             </a>
           </div>
           <div>
             <h2>Conjuros</h2>
-            <img
-              src="http://localhost:5173/imagenes/general/ejemploMagia.webp"
-              alt=""
-            />
+            <img src="/imagenes/general/ejemploMagia.webp" alt="" />
             <a href="/conjuros">
               <input type="button" value="Ver más" />
             </a>

@@ -83,10 +83,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerGuerrero.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerGuerrero.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -409,10 +406,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Maestro de batalla</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoGuerreroSub1.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoGuerreroSub1.png" alt="" />
                   <h2>
                     Como dechado de superioridad táctica, empleas un amplio
                     abanico de maniobras de combate para dominar cada combate.
@@ -420,7 +414,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase1"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -431,13 +425,13 @@ export default function () {
                           "divSubInferior1"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase1").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior1"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase1").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -565,10 +559,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Berserker</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoGuerreroSub2.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoGuerreroSub2.png" alt="" />
                   <h2>
                     Abordas los complejos problemas que plantea el combate con
                     una solución claramente eficaz: golpea esos problemas, y muy
@@ -577,7 +568,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase2"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -588,13 +579,13 @@ export default function () {
                           "divSubInferior2"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior2"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />

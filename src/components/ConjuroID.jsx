@@ -110,18 +110,12 @@ export default function ({ usuario }) {
           <div className="mostrarTitulo">
             <h1>{dbConjuro.nombre_conjuro}</h1>
             {dbConjuro.concentracion == 1 ? (
-              <img
-                src="http://localhost:5173/imagenes/iconos/concetracion.png"
-                alt=""
-              />
+              <img src="/imagenes/iconos/concetracion.png" alt="" />
             ) : (
               ""
             )}
             {dbConjuro.ritual == 1 ? (
-              <img
-                src="http://localhost:5173/imagenes/iconos/ritual.png"
-                alt=""
-              />
+              <img src="/imagenes/iconos/ritual.png" alt="" />
             ) : (
               ""
             )}

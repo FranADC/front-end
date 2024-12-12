@@ -79,10 +79,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerPaladin.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerPaladin.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -602,10 +599,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Juramento de los Antiguos</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoPaladinSub1.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoPaladinSub1.png" alt="" />
                     <h2>
                       Luchas del lado de la luz en la lucha cósmica contra la
                       oscuridad para preservar la santidad de la vida y la
@@ -614,7 +608,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase1"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -625,13 +619,13 @@ export default function () {
                             "divSubInferior1"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior1"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -680,10 +674,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Juramento de la devoción</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoPaladinSub2.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoPaladinSub2.png" alt="" />
                     <h2>
                       Siguiendo el ideal del caballero de brillante armadura,
                       actúas con honor y virtud para proteger a los débiles y
@@ -692,7 +683,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase2"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -703,13 +694,13 @@ export default function () {
                             "divSubInferior2"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase2").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior2"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase2").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -759,10 +750,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Juramento de la venganza</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoPaladinSub3.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoPaladinSub3.png" alt="" />
                     <h2>
                       Has dejado de lado incluso tu propia pureza para enderezar
                       entuertos e impartir justicia a quienes han cometido los
@@ -771,7 +759,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase3"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -782,13 +770,13 @@ export default function () {
                             "divSubInferior3"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase3").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior3"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase3").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />

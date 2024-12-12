@@ -79,10 +79,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerBrujo.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerBrujo.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -876,10 +873,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Patron infernal</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoBrujoSub1.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoBrujoSub1.png" alt="" />
                     <h2>
                       Has entregado tu alma a los Infiernos o Abismos a cambio
                       de un mortífero arsenal de arcanos diabólicos.
@@ -887,7 +881,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase1"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -898,13 +892,13 @@ export default function () {
                             "divSubInferior1"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior1"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -981,10 +975,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Patron del antiguo</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBrujoSub2.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBrujoSub2.png" alt="" />
                   <h2>
                     Prometiste algo impensable a una entidad indescriptiblemente
                     antigua, que a cambio te proporcionó poderes de entropía
@@ -993,7 +984,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase2"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -1004,13 +995,13 @@ export default function () {
                           "divSubInferior2"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior2"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -1092,10 +1083,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Patron feérico</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBrujoSub3.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBrujoSub3.png" alt="" />
                   <h2>
                     Con la gracia de una dama o un señor de los feéricos, estás
                     imbuido de todas las cualidades suntuosas y aterradoras del
@@ -1104,7 +1092,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase3"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -1115,13 +1103,13 @@ export default function () {
                           "divSubInferior3"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior3"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />

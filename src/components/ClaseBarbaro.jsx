@@ -78,10 +78,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerBarbaro.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerBarbaro.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -474,10 +471,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Corazón Salvaje</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBarbaroSub1.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBarbaroSub1.png" alt="" />
                   <h2>
                     Tu sintonía con la naturaleza y sus bestias inspira tu
                     furia, dotándote de un poder sobrenatural.
@@ -485,7 +479,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase1"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -496,13 +490,13 @@ export default function () {
                           "divSubInferior1"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase1").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior1"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase1").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -736,10 +730,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Berserker</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBarbaroSub2.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBarbaroSub2.png" alt="" />
                   <h2>
                     La violencia es a la vez un medio y un fin. Sigues un camino
                     de furia desenfrenada, manchado de sangre, mientras te
@@ -749,7 +740,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase2"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -760,13 +751,13 @@ export default function () {
                           "divSubInferior2"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior2"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -822,10 +813,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Magia salvaje</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBarbaroSub3.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBarbaroSub3.png" alt="" />
                   <h2>
                     La salvaje influencia de la magia te ha transformado,
                     impregnándote de un poder arcano que se agita en tu interior
@@ -834,7 +822,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase3"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -845,13 +833,13 @@ export default function () {
                           "divSubInferior3"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior3"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />

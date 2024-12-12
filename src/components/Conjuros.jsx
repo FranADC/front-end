@@ -491,7 +491,7 @@ export default function ({ usuario }) {
               }}
             />
             {usuario.rol == 1 ? (
-              <a className="boton" href="http://localhost:5173/conjuros/añadir">
+              <a className="boton" href="/conjuros/añadir">
                 <input type="button" value="Añadir Conjuro" />
               </a>
             ) : (
@@ -512,26 +512,26 @@ export default function ({ usuario }) {
                       className="filaNombre iconoOrder"
                       onClick={(e) => {
                         document.getElementById("orderNivel").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderEscuela").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderTiempo").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         if (orderBy != "nombre_conjuro") {
                           setOrderBy("nombre_conjuro");
                           setOrder("ASC");
                           document.getElementById("orderNombre").src =
-                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                            "/imagenes/iconos/flecha-arriba.svg";
                         } else {
                           if (order == "ASC") {
                             setOrder("DESC");
                             document.getElementById("orderNombre").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                              "/imagenes/iconos/flecha-abajo.svg";
                           } else {
                             setOrderBy("");
                             setOrder("");
                             document.getElementById("orderNombre").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                              "/imagenes/iconos/flecha-vertical.svg";
                           }
                         }
                       }}
@@ -546,26 +546,26 @@ export default function ({ usuario }) {
                       className="filaNivel iconoOrder"
                       onClick={(e) => {
                         document.getElementById("orderNombre").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderEscuela").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderTiempo").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         if (orderBy != "nivel_conjuro") {
                           setOrderBy("nivel_conjuro");
                           setOrder("ASC");
                           document.getElementById("orderNivel").src =
-                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                            "/imagenes/iconos/flecha-arriba.svg";
                         } else {
                           if (order == "ASC") {
                             setOrder("DESC");
                             document.getElementById("orderNivel").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                              "/imagenes/iconos/flecha-abajo.svg";
                           } else {
                             setOrderBy("");
                             setOrder("");
                             document.getElementById("orderNivel").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                              "/imagenes/iconos/flecha-vertical.svg";
                           }
                         }
                       }}
@@ -580,26 +580,26 @@ export default function ({ usuario }) {
                       className="filaEscuela iconoOrder"
                       onClick={(e) => {
                         document.getElementById("orderNombre").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderNivel").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderTiempo").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         if (orderBy != "escuela_magia") {
                           setOrderBy("escuela_magia");
                           setOrder("ASC");
                           document.getElementById("orderEscuela").src =
-                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                            "/imagenes/iconos/flecha-arriba.svg";
                         } else {
                           if (order == "ASC") {
                             setOrder("DESC");
                             document.getElementById("orderEscuela").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                              "/imagenes/iconos/flecha-abajo.svg";
                           } else {
                             setOrderBy("");
                             setOrder("");
                             document.getElementById("orderEscuela").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                              "/imagenes/iconos/flecha-vertical.svg";
                           }
                         }
                       }}
@@ -614,26 +614,26 @@ export default function ({ usuario }) {
                       className="filaTiempo iconoOrder"
                       onClick={(e) => {
                         document.getElementById("orderNombre").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderNivel").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         document.getElementById("orderEscuela").src =
-                          "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                          "/imagenes/iconos/flecha-vertical.svg";
                         if (orderBy != "tiempo_lanz") {
                           setOrderBy("tiempo_lanz");
                           setOrder("ASC");
                           document.getElementById("orderTiempo").src =
-                            "http://localhost:5173/imagenes/iconos/flecha-arriba.svg";
+                            "/imagenes/iconos/flecha-arriba.svg";
                         } else {
                           if (order == "ASC") {
                             setOrder("DESC");
                             document.getElementById("orderTiempo").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-abajo.svg";
+                              "/imagenes/iconos/flecha-abajo.svg";
                           } else {
                             setOrderBy("");
                             setOrder("");
                             document.getElementById("orderTiempo").src =
-                              "http://localhost:5173/imagenes/iconos/flecha-vertical.svg";
+                              "/imagenes/iconos/flecha-vertical.svg";
                           }
                         }
                       }}
@@ -666,18 +666,12 @@ export default function ({ usuario }) {
                       <div className="filaNombre">
                         <p>{conjuro.nombre_conjuro}</p>
                         {conjuro.concentracion == 1 ? (
-                          <img
-                            src="http://localhost:5173/imagenes/iconos/concetracion.png"
-                            alt=""
-                          />
+                          <img src="/imagenes/iconos/concetracion.png" alt="" />
                         ) : (
                           ""
                         )}
                         {conjuro.ritual == 1 ? (
-                          <img
-                            src="http://localhost:5173/imagenes/iconos/ritual.png"
-                            alt=""
-                          />
+                          <img src="/imagenes/iconos/ritual.png" alt="" />
                         ) : (
                           ""
                         )}
@@ -713,24 +707,20 @@ export default function ({ usuario }) {
                             ).style.display = "flex";
                             document.getElementById(
                               "botonTabla" + conjuro.id_conjuro
-                            ).src =
-                              "http://localhost:5173/imagenes/iconos/restar.svg";
+                            ).src = "/imagenes/iconos/restar.svg";
                           } else {
                             document.getElementById(
                               "filaInferior" + conjuro.id_conjuro
                             ).style.display = "none";
                             document.getElementById(
                               "botonTabla" + conjuro.id_conjuro
-                            ).src =
-                              "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            ).src = "/imagenes/iconos/sumar.svg";
                           }
                         }}
                       >
                         <img
                           id={"botonTabla" + conjuro.id_conjuro}
-                          src={
-                            "http://localhost:5173/imagenes/iconos/sumar.svg"
-                          }
+                          src={"/imagenes/iconos/sumar.svg"}
                           alt=""
                           className="miniaturaConjuro"
                         />

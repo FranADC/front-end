@@ -79,10 +79,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerHechicero.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerHechicero.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -684,10 +681,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Escuela de Abjuración</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoHechiceroSub1.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoHechiceroSub1.png" alt="" />
                     <h2>
                       Tuerces y endureces el Tejido para crear barreras arcanas
                       que te protejan a ti y a los demás.
@@ -695,7 +689,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase1"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -706,13 +700,13 @@ export default function () {
                             "divSubInferior1"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior1"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -765,10 +759,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Escuela de Evocación</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoHechiceroSub2.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoHechiceroSub2.png" alt="" />
                   <h2>
                     Se te conoce como un evocador, que camina ileso a través del
                     caos desenfrenado al que llamas.
@@ -776,7 +767,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase2"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -787,13 +778,13 @@ export default function () {
                           "divSubInferior2"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior2"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -838,10 +829,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Escuela de ilusionismo</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoHechiceroSub3.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoHechiceroSub3.png" alt="" />
                   <h2>
                     Eres especialista en desenredar y volver a coser el tejido
                     de la realidad para engañar a incautos, crédulos y
@@ -850,7 +838,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase3"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -861,13 +849,13 @@ export default function () {
                           "divSubInferior3"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior3"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />

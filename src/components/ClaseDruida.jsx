@@ -81,10 +81,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerDruida.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerDruida.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -657,10 +654,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Círculo de la vida</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoDruidaSub1.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoDruidaSub1.png" alt="" />
                     <h2>
                       Canalizas la magia natural que fluye por la tierra y las
                       criaturas que hay sobre ella para lanzar poderosa magia
@@ -669,7 +663,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase1"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -680,13 +674,13 @@ export default function () {
                             "divSubInferior1"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior1"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -738,10 +732,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Círculo de la Luna</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoDruidaSub2.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoDruidaSub2.png" alt="" />
                     <h2>
                       Tu forma es mutable como la luna mercurial, lo que te
                       permite transformarte en enormes bestias e incluso en
@@ -750,7 +741,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase2"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -761,13 +752,13 @@ export default function () {
                             "divSubInferior2"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase2").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior2"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase2").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -816,10 +807,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Círculo de las esporas</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoDruidaSub3.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoDruidaSub3.png" alt="" />
                     <h2>
                       Considerando la muerte, la necrosis, el crecimiento
                       fúngico y la esporulación como una parte más de la vida,
@@ -829,7 +817,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase3"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -840,13 +828,13 @@ export default function () {
                             "divSubInferior3"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase3").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior3"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase3").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />

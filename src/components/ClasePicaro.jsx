@@ -80,10 +80,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerPicaro.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerPicaro.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -422,10 +419,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Ladrón</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoPicaroSub1.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoPicaroSub1.png" alt="" />
                   <h2>
                     Tus manos rápidas y tu dominio de las artes del latrocinio
                     hacen que robar sea algo natural, ya sea desde la ventana de
@@ -434,7 +428,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase1"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -445,13 +439,13 @@ export default function () {
                           "divSubInferior1"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase1").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior1"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase1").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -486,10 +480,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Asesino</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoPicaroSub2.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoPicaroSub2.png" alt="" />
                   <h2>
                     Prefieres infligir un castigo sublime a un solo enemigo a la
                     vez, no en un duelo, porque un duelo implica caballerosidad,
@@ -498,7 +489,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase2"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -509,13 +500,13 @@ export default function () {
                           "divSubInferior2"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior2"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />

@@ -79,10 +79,7 @@ export default function () {
               </div>
             </div>
             <div className="divImagen">
-              <img
-                src="http://localhost:5173/imagenes/general/BannerBardo.png"
-                alt=""
-              />
+              <img src="/imagenes/general/BannerBardo.png" alt="" />
             </div>
           </div>
           <div className="divDescripcion">
@@ -718,10 +715,7 @@ export default function () {
                 <div className="divSubSuperior">
                   <h1>Colegio del conocimiento</h1>
                   <div>
-                    <img
-                      src="http://localhost:5173/imagenes/general/logoBardoSub1.png"
-                      alt=""
-                    />
+                    <img src="/imagenes/general/logoBardoSub1.png" alt="" />
                     <h2>
                       Persigues la belleza y la verdad, recopilando
                       conocimientos desde tomos eruditos hasta cuentos de
@@ -731,7 +725,7 @@ export default function () {
                     <img
                       className="imgBotonSubclase"
                       id="imgBotonSubclase1"
-                      src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                      src="/imagenes/iconos/sumar.svg"
                       alt=""
                       onClick={() => {
                         const estado =
@@ -742,13 +736,13 @@ export default function () {
                             "divSubInferior1"
                           ).style.display = "flex";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/restar.svg";
+                            "/imagenes/iconos/restar.svg";
                         } else {
                           document.getElementById(
                             "divSubInferior1"
                           ).style.display = "none";
                           document.getElementById("imgBotonSubclase1").src =
-                            "http://localhost:5173/imagenes/iconos/sumar.svg";
+                            "/imagenes/iconos/sumar.svg";
                         }
                       }}
                     />
@@ -786,10 +780,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Colegio del valor</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBardoSub2.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBardoSub2.png" alt="" />
                   <h2>
                     Recorres la tierra para ser testigo y relatar las hazañas de
                     los poderosos, manteniendo vivo el recuerdo de los héroes
@@ -798,7 +789,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase2"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -809,13 +800,13 @@ export default function () {
                           "divSubInferior2"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior2"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase2").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
@@ -854,10 +845,7 @@ export default function () {
               <div className="divSubSuperior">
                 <h1>Colegio de las espadas</h1>
                 <div>
-                  <img
-                    src="http://localhost:5173/imagenes/general/logoBardoSub3.png"
-                    alt=""
-                  />
+                  <img src="/imagenes/general/logoBardoSub3.png" alt="" />
                   <h2>
                     Un guerrero muy entrenado y hábil, que utiliza su destreza
                     con las palabras y las armas para luchar y entretener a
@@ -866,7 +854,7 @@ export default function () {
                   <img
                     className="imgBotonSubclase"
                     id="imgBotonSubclase3"
-                    src="http://localhost:5173/imagenes/iconos/sumar.svg"
+                    src="/imagenes/iconos/sumar.svg"
                     alt=""
                     onClick={() => {
                       const estado =
@@ -877,13 +865,13 @@ export default function () {
                           "divSubInferior3"
                         ).style.display = "flex";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/restar.svg";
+                          "/imagenes/iconos/restar.svg";
                       } else {
                         document.getElementById(
                           "divSubInferior3"
                         ).style.display = "none";
                         document.getElementById("imgBotonSubclase3").src =
-                          "http://localhost:5173/imagenes/iconos/sumar.svg";
+                          "/imagenes/iconos/sumar.svg";
                       }
                     }}
                   />
