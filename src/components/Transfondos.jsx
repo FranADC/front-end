@@ -1,4 +1,4 @@
-import "./transfondos.css";
+import "./Transfondos.css";
 export default function () {
   return (
     <>

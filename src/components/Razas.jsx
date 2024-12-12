@@ -1,4 +1,4 @@
-import "./razas.css";
+import "./Razas.css";
 export default function () {
   return (
     <>

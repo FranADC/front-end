@@ -1,4 +1,4 @@
-import "./conjuroAdd.css";
+import "./ConjuroAdd.css";
 import { useState, useEffect } from "react";
 
 export default function () {

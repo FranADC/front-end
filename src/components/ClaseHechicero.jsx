@@ -1,5 +1,5 @@
-import "./hojaClases.css";
-import "./tablaHechicero.css";
+import "./HojaClases.css";
+import "./TablaHechicero.css";
 export default function () {
   return (
     <>

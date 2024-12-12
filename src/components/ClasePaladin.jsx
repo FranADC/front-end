@@ -1,5 +1,5 @@
-import "./hojaClases.css";
-import "./tablaPaladin.css";
+import "./HojaClases.css";
+import "./TablaPaladin.css";
 export default function () {
   return (
     <>

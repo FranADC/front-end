@@ -1,5 +1,5 @@
 //import "./Header.css";
-import "./conjuroUpdate.css";
+import "./ConjuroUpdate.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 

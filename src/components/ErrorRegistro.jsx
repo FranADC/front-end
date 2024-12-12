@@ -1,4 +1,4 @@
-import "./error.css";
+import "./Error.css";
 import { useState, useEffect } from "react";
 
 export default function () {

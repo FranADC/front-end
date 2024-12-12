@@ -1,4 +1,4 @@
-import "./clases.css";
+import "./Clases.css";
 export default function () {
   return (
     <>

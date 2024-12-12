@@ -1,5 +1,5 @@
-import "./hojaClases.css";
-import "./tablaMago.css";
+import "./HojaClases.css";
+import "./TablaMago.css";
 export default function () {
   return (
     <>

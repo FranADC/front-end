@@ -1,4 +1,4 @@
-import "./conjuros.css";
+import "./Conjuros.css";
 import { useState, useEffect } from "react";
 
 export default function ({ usuario }) {
