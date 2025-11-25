@@ -1,7 +1,10 @@
 import "./ConjuroAdd.css";
 import { useState, useEffect } from "react";
+import Alert from "./Alert";
 
 export default function () {
+  const [alertOpen, setAlertOpen] = useState(false);
+
   const [addNombreConjuro, setAddNombreConjuro] = useState("");
   const [addNivelConjuro, setAddNivelConjuro] = useState("");
   const [addEscuelaMagia, setAddEscuelaMagia] = useState("");
@@ -141,6 +144,14 @@ export default function () {
 
   return (
     <>
+      <Alert
+        isOpen={alertOpen}
+        setIsOpen={setAlertOpen}
+        title="Añadir conjuro"
+        text="Conjuro añadido de forma exitosa"
+        href="/conjuros/añadir"
+      />
+
       <div className="divBody">
         <form className="formConjurosAdd" id="formConjurosAdd">
           <div className="botonesMenu">
@@ -605,8 +616,7 @@ export default function () {
                     setErroresFiltros(result);
                     throw new Error("Network response was not ok");
                   } else {
-                    alert("Conjuro añadido de forma exitosa");
-                    window.location.href = "/conjuros/añadir";
+                    setAlertOpen(true);
                   }
                 } catch (err) {
                   console.log(err);

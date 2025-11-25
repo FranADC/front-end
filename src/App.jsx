@@ -133,6 +133,8 @@ function App() {
         <Route path="/transfondos" element={<CompoTransfondos />} />
         <Route path="/razas" element={<CompoRazas />} />
 
+        <Route path="/tienda" element={<CompoRazas />} />
+
         <Route path="*" element={<CompoError404 />} />
       </Routes>
       <CompoFooter />

@@ -198,9 +198,7 @@ export default function ({ usuario }) {
           <h2>Filtros</h2>
           <div className="filaFormPricipal">
             <div>
-              <label htmlFor="nombreConjuro" className="tiamat">
-                Nombre conjuro
-              </label>
+              <label htmlFor="nombreConjuro">Nombre conjuro</label>
               <input
                 type="text"
                 name="nombreConjuro"
@@ -217,9 +215,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="nivelConjuro" className="tiamat">
-                Nivel conjuro
-              </label>
+              <label htmlFor="nivelConjuro">Nivel conjuro</label>
               <select
                 name="nivelConjuro"
                 id="nivelConjuro"
@@ -244,9 +240,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="escuelaMagia" className="tiamat">
-                Escuela magia
-              </label>
+              <label htmlFor="escuelaMagia">Escuela magia</label>
               <select
                 name="escuelaMagia"
                 id="escuelaMagia"
@@ -271,9 +265,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="tiempoLanzamiento" className="tiamat">
-                Tiempo lanzamiento
-              </label>
+              <label htmlFor="tiempoLanzamiento">Tiempo lanzamiento</label>
               <select
                 name="tiempoLanzamiento"
                 id="tiempoLanzamiento"
@@ -299,9 +291,7 @@ export default function ({ usuario }) {
 
             <div>
               {" "}
-              <label htmlFor="alcanceLanzamiento" className="tiamat">
-                Alcance lanzamiento
-              </label>
+              <label htmlFor="alcanceLanzamiento">Alcance lanzamiento</label>
               <select
                 name="alcanceLanzamiento"
                 id="alcanceLanzamiento"
@@ -326,9 +316,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="claseMagia" className="tiamat">
-                Clase magica
-              </label>
+              <label htmlFor="claseMagia">Clase magica</label>
               <select
                 name="claseMagia"
                 id="claseMagia"
@@ -353,9 +341,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="concentracion" className="tiamat">
-                Concentración
-              </label>
+              <label htmlFor="concentracion">Concentración</label>
               <select
                 name="concentracion"
                 id="concentracion"
@@ -377,9 +363,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="ritual" className="tiamat">
-                Ritual
-              </label>
+              <label htmlFor="ritual">Ritual</label>
               <select
                 name="ritual"
                 id="ritual"
@@ -401,9 +385,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="somatico" className="tiamat">
-                Somático
-              </label>
+              <label htmlFor="somatico">Somático</label>
               <select
                 name="somatico"
                 id="somatico"
@@ -425,9 +407,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="verbal" className="tiamat">
-                Verbal
-              </label>
+              <label htmlFor="verbal">Verbal</label>
               <select
                 name="verbal"
                 id="verbal"
@@ -449,9 +429,7 @@ export default function ({ usuario }) {
             </div>
 
             <div>
-              <label htmlFor="material" className="tiamat">
-                Material
-              </label>
+              <label htmlFor="material">Material</label>
               <select
                 name="material"
                 id="material"
@@ -536,7 +514,7 @@ export default function ({ usuario }) {
                         }
                       }}
                     >
-                      <p className="tiamat">Nombre</p>
+                      <p>Nombre</p>
                       <img
                         id="orderNombre"
                         src="/imagenes/iconos/flecha-vertical.svg"
@@ -570,7 +548,7 @@ export default function ({ usuario }) {
                         }
                       }}
                     >
-                      <p className="tiamat">Nivel</p>
+                      <p>Nivel</p>
                       <img
                         id="orderNivel"
                         src="/imagenes/iconos/flecha-vertical.svg"
@@ -604,7 +582,7 @@ export default function ({ usuario }) {
                         }
                       }}
                     >
-                      <p className="tiamat">Escuela</p>
+                      <p>Escuela</p>
                       <img
                         id="orderEscuela"
                         src="/imagenes/iconos/flecha-vertical.svg"
@@ -638,17 +616,17 @@ export default function ({ usuario }) {
                         }
                       }}
                     >
-                      <p className="tiamat">Tiempo de lanzamiento</p>
+                      <p>Tiempo de lanzamiento</p>
                       <img
                         id="orderTiempo"
                         src="/imagenes/iconos/flecha-vertical.svg"
                       />
                     </div>
                     <div className="filaRangoAlcance">
-                      <p className="tiamat">Rango/Area</p>
+                      <p>Rango/Area</p>
                     </div>
                     <div className="filaComponentes">
-                      <p className="tiamat">Componentes</p>
+                      <p>Componentes</p>
                     </div>
                     <div className="filaBoton"></div>
                   </div>
@@ -732,23 +710,23 @@ export default function ({ usuario }) {
                       id={"filaInferior" + conjuro.id_conjuro}
                     >
                       <div>
-                        <p className="tiamat">Nivel</p>
+                        <p>Nivel</p>
                         <p>{conjuro.nombre_nivel}</p>
                       </div>
                       <div>
-                        <p className="tiamat">Escuela</p>
+                        <p>Escuela</p>
                         <p>{conjuro.nombre_escuela}</p>
                       </div>
                       <div>
-                        <p className="tiamat">Tiempo de lanzamiento</p>
+                        <p>Tiempo de lanzamiento</p>
                         <p>{conjuro.nombre_tiempo}</p>
                       </div>
                       <div>
-                        <p className="tiamat">Rango/Area</p>
+                        <p>Rango/Area</p>
                         <p>{conjuro.rango_area}</p>
                       </div>
                       <div>
-                        <p className="tiamat">Componentes</p>
+                        <p>Componentes</p>
                         <p>
                           {conjuro.somatico == 1 ? " S " : ""}
                           {conjuro.verbal == 1 ? " V " : ""}

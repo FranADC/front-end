@@ -1,7 +1,11 @@
 import "./ConjurosID.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Alert from "./Alert";
+
 export default function ({ usuario }) {
+  const [alertOpen, setAlertOpen] = useState(false);
+
   const { ID } = useParams();
 
   const [dbConjuro, setDbConjuro] = useState([]);
@@ -89,8 +93,7 @@ export default function ({ usuario }) {
       if (!peticion.ok) {
         throw new Error("Network response was not ok");
       } else {
-        alert("Conjuro borrado con exito");
-        window.location.href = "/conjuros";
+        setAlertOpen(true);
       }
     } catch (err) {
       console.log(err);
@@ -99,6 +102,13 @@ export default function ({ usuario }) {
 
   return (
     <>
+      <Alert
+        isOpen={alertOpen}
+        setIsOpen={setAlertOpen}
+        title="Borrar conjuro"
+        text="Conjuro borrado de forma exitosa"
+        href="/conjuros"
+      />
       {console.log(dbConjuro)}
       <div className="divBody">
         <div className="tarjetaConjuro">

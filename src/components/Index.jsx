@@ -5,13 +5,18 @@ export default function () {
     <>
       <div className="divBody">
         <div className="divTitulo">
-          <h3>bienvenidos a </h3>
-          <h1>DRAMONES Y MAZMORRAS</h1>
+          <h1>bienvenidos a Dramones y Mazmorras</h1>
           <p>
-            Aqui encontraras toda la información necesaria para empezar a jugar
-            a dragones y mazmorras, crear tus presonajes y disfrutar de una gran
-            aventura con tus amigos.
+            En esta web encontraras toda la información necesaria para empezar a
+            jugar a dragones y mazmorras, crear tus presonajes y disfrutar de
+            una gran aventura con tus amigos.
           </p>
+          <p>
+            Aunque si deseas mas información o un lugar donde comprar tus
+            suministros para la aventura no dudes en acudir a nuestra tienda
+            fisica
+          </p>
+          <img src="/imagenes/tienda/localizacion.png" alt="" />
         </div>
         <div className="divElementos">
           <div>

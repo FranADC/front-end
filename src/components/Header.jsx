@@ -42,6 +42,9 @@ export default function ({ usuario }) {
                   <a href="/transfondos">Transfondos</a>
                 </li>
                 <li>
+                  <a href="/tienda">Tienda</a>
+                </li>
+                <li>
                   <a href="/conjuros">Conjuros</a>
                 </li>
               </ul>

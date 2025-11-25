@@ -2,8 +2,11 @@
 import "./ConjuroUpdate.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Alert from "./Alert";
 
 export default function () {
+  const [alertOpen, setAlertOpen] = useState(false);
+
   const { ID } = useParams();
 
   const [updateNombreConjuro, setUpdateNombreConjuro] = useState("");
@@ -230,6 +233,13 @@ export default function () {
 
   return (
     <>
+      <Alert
+        isOpen={alertOpen}
+        setIsOpen={setAlertOpen}
+        title="Actualizar conjuro"
+        text="Conjuro actualizado de forma exitosa"
+        href={"/conjuros/" + ID}
+      />
       <div className="divBody">
         <form className="formConjurosUpdate" id="formConjurosUpdate">
           <div className="botonesMenu">
@@ -703,9 +713,8 @@ export default function () {
                     setErroresFiltros(result);
                     throw new Error("Network response was not ok");
                   } else {
-                    alert("Conjuro actualizado de forma exitosa");
-                    window.location.href = "/conjuros/" + ID;
                     setErroresFiltros("");
+                    setAlertOpen(true);
                   }
                 } catch (err) {
                   console.log(err);

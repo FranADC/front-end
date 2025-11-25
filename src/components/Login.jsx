@@ -27,7 +27,6 @@ const Login = () => {
         window.location.href = "/";
       } else {
         setErroresFiltros(data);
-        //alert("Error al iniciar sesión");
       }
     } catch (error) {
       console.error(error);
